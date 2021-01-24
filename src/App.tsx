@@ -7,32 +7,23 @@ import Header from './components/site/Header'
 import Auth from './components/auth/Auth'
 import UserHomepage from './components/site/UserHomepage'
 
+
 type AppStates = {
   sessionToken: any,  
-   
 }
 
 class App extends React.Component<{}, AppStates> {
-  
-  
-  
   constructor(props: any) {
     super(props);
-    
     this.state = {
       sessionToken: "",
    
-    }
-    
-
+    } 
   }
  
-
-
   getToken = () => {
     if (localStorage.getItem('token')) {
       this.setState({ sessionToken: localStorage.getItem('token')});
-      
     }
   }
 // this changes the state of this particular token, when someone signs up we want it to change it to their token so they can access their "stuff"
@@ -46,39 +37,48 @@ class App extends React.Component<{}, AppStates> {
     localStorage.clear();
     this.setState({ sessionToken: ''});
   }
+// this will run as soon as someone lands on the component-all the get info is established
 
- componentWillMount() { 
+ componentDidMount() { 
     this.getToken();
-    
-    
+    console.log('this is a test')
   }
 
-  // componentDidMount() {
-  //   setInterval(() => this.getToken(), 1000);
-  
-  // }
+
 
 render() {
 
   return (
     <div className="App">
      <div className="verticalCenter">
+
+             <Router>
+               <Header /> 
+               <Switch>
+                 {/* //if there is no sessiontoken show auth, if there is one, show userhomepage */}
+              { !this.state.sessionToken ? 
+                 <Route>
+                  <Auth updateToken={this.updateToken} />
+                 </Route>
+                  :
+                //  <Route>
+                 <UserHomepage sessionToken={this.state.sessionToken} clearToken={this.clearToken} />  
+                //  </Route>
+              }       
+              </Switch>
+             </Router>
+            
+                 
+
+
+
               
-            <Header clearToken={this.clearToken} />
 
-            <Router>
-            <Switch>
-              <Route path="/user">
-              <Auth updateToken={this.updateToken}/> 
-              </Route>
+            
+          
+            
+           
 
-              <Route path='/userhomepage'>
-              <UserHomepage sessionToken={this.state.sessionToken} />
-              </Route>
-
-
-            </Switch>  
-            </Router>
     </div>
     </div>
   );

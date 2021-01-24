@@ -33,8 +33,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 headers: new Headers({
                     'Content-Type': 'application/json'
                 })
-            })
-                .then((response) => {
+            }).then((response) => {
                     if (response.status === 200) {
                         console.log("Registration is successful.");
 
@@ -44,9 +43,9 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                     return response.json();
                 })
                 .then((data) => {
-                    console.log(data)
-                    // this.props.updateToken(data.sessionToken);
-                    this.setState({redirect: '/userhomepage'})
+                    console.log(data);
+                    (this.props.updateToken(data.sessionToken));
+                    (this.setState({redirect: '/userhomepage'}));
                 })
         }
     

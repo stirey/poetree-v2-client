@@ -1,10 +1,8 @@
 import React from 'react';
-import { Container, Button, Row } from 'reactstrap';
+import { Container, Row, Col, Button } from 'reactstrap';
 import Login from './Login';
 import Register from './Register';
 import { Switch, Route} from 'react-router-dom'
-
-
 
 type AuthStates = {
     email: string;
@@ -14,6 +12,8 @@ type AuthStates = {
     sessionToken: any;
     updateToken: any;
     getToken: any;
+    signup: boolean;
+
 }
 
 class Auth extends React.Component<{updateToken: any}, AuthStates> {
@@ -25,6 +25,7 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
             sessionToken: "",
             getToken: "",
             updateToken: "",
+            signup: true,
             setEmail: (e) => {
                 this.setState({
                     email: e
@@ -35,39 +36,45 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
                     password: e
                 })
             },
-           
+
         }
     }
     
-
     render() {
     return (
         <Container className="auth-container">
             <Row>
-             
-                    <Route path="/user">
+                
+               { this.state.signup ?
+                    <Col md="6">    
                     <Register
                      email={this.state.email}
                      password={this.state.password}
                      setEmail={this.state.setEmail}
                      setPassword={this.state.setPassword}
                      sessionToken={this.state.sessionToken}
-                     updateToken={this.state.updateToken}
+                     updateToken={this.props.updateToken}
                      getToken={this.state.getToken} />  
-                    </Route>
-
-                    <Route path="/user">
+                    </Col>
+                    :
+                    <Col md="6">
                     <Login 
                     email={this.state.email}
                     password={this.state.password}
                     setEmail={this.state.setEmail}
                     setPassword={this.state.setPassword}
                     sessionToken={this.state.sessionToken}
-                    updateToken={this.state.updateToken}
+                    updateToken={this.props.updateToken}
                     getToken={this.state.getToken} />
-                    </Route>
-                
-                
+                </Col>
+                }
+
+              <Button onClick={() => { 
+                  this.setState({
+                      signup: !this.state.signup
+                  })
+              }   }>{ this.state.signup? "Already have a login? Click here." : "Need a login? Click here."}</Button>
+              
             </Row> 
         </Container>
     )

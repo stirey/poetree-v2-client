@@ -47,12 +47,9 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
             })
             
             .then((data) => {
-                // this.props.updateToken(data.sessionToken);
-                this.setState({redirect: '/userhomepage'})
+                (this.props.updateToken(data.sessionToken));
+                (this.setState({redirect: '/userhomepage'}));
             })
-
-        
-
     }
 
  render() {

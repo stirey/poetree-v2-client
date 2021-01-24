@@ -1,41 +1,35 @@
 import React from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText,
-    Button
-  } from 'reactstrap';
+import {Collapse,Navbar,NavbarToggler,Nav,NavItem,NavLink,UncontrolledDropdown, DropdownToggle,DropdownMenu,DropdownItem,NavbarText,} from 'reactstrap';
 
 
-
-  type HeaderProps ={
-    clearToken: any;
+type HeaderState = {
+    isOpen: boolean;
   }
 
-class Header extends React.Component<HeaderProps, {}> {
-  constructor(props: HeaderProps) {
-    super(props)
-    
+class Header extends React.Component<{}, HeaderState> {
+  constructor(props: any) {
+    super(props);
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false,
+    };
   }
 
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
 
     render() {
     return (
-<div>
-    <Navbar color="light" light expand="md">
-        <NavbarText>PoeTree</NavbarText>
+    <div>
+      <Navbar color="light" light expand="md">
+            <NavbarText>PoeTree</NavbarText>
         
-            <NavbarToggler />
-              <Collapse  navbar>
-                <Nav className="mr-auto" navbar>
+            <NavbarToggler right onClick={this.toggle} />
+              <Collapse  isOpen={this.state.isOpen} navbar>
+                <Nav navbar>
                   
                   <NavItem>
                     <NavLink href="/">Home</NavLink>
@@ -55,10 +49,6 @@ class Header extends React.Component<HeaderProps, {}> {
                     </DropdownMenu>
                   </UncontrolledDropdown>
 
-                  <NavItem>
-          
-                    <Button onClick={this.props.clearToken}>Logout</Button>
-                  </NavItem>
                 
                 </Nav>
             </Collapse>
