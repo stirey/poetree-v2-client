@@ -1,0 +1,68 @@
+
+/* HEADER */
+.acorn{
+  width: 4vw;
+}
+
+.tree{
+width: 4vw;
+}
+
+/* CONTACT */
+#contactForm{
+text-align: center;
+justify-content: center;
+}
+
+#contactbtn{
+margin: 20px;
+}
+
+/* ABOUT */
+
+.aboutHeadlines{
+text-align: center;
+justify-content: center;
+
+}
+
+
+
+/* BANNER */
+.bannertext{
+text-align: center;
+background-color: #e3af71;
+}
+
+/* LOGIN FORM */
+
+.logincard{
+text-align: center;
+justify-content: center;
+
+
+}
+
+.loginform{
+text-align: center;
+justify-content: center;
+padding: 30px;
+background-color: #CAB2F8;
+}
+
+.loginbtn{
+padding: 5px;
+}
+
+/* CREATE ANNOUNCEMENT */
+.msgMeBtn{
+background-color:  #CAB2F8;
+}
+
+/* FOOTER */
+
+.footer{
+text-align: center;
+background-color: #a2c6bb;
+justify-content: center;
+}
