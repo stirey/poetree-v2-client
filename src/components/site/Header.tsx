@@ -26,11 +26,9 @@ class Header extends React.Component<{}, HeaderState> {
     <div>
       <Navbar color="light" light expand="md">
             <NavbarText>PoeTree</NavbarText>
-        
             <NavbarToggler right onClick={this.toggle} />
               <Collapse  isOpen={this.state.isOpen} navbar>
                 <Nav navbar>
-                  
                   <NavItem>
                     <NavLink href="/">Home</NavLink>
                   </NavItem>
@@ -38,7 +36,7 @@ class Header extends React.Component<{}, HeaderState> {
                   <NavItem>
                     <NavLink href="/contact" className="contact">Contact</NavLink>
                   </NavItem>
-
+                  
                   <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>About</DropdownToggle>
                     <DropdownMenu right>

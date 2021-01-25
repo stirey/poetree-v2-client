@@ -55,12 +55,9 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
      }
     return (
         <div>
-    <Container>
-        <Row>
-            <Col></Col> 
-                <Col id="logincard">   
+     
                     <Card id="logincard">  
-                        <Form className="registerForm" onSubmit={this.handleSubmit}>
+                        <Form className="loginform" onSubmit={this.handleSubmit}>
                             <Label><h1>Signup</h1></Label>    
                             <FormGroup>   
                             <Label htmlFor="email" className="email">Email</Label>
@@ -89,12 +86,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                             type="submit">Submit</Button>
                             </Form>
                     </Card>
-                </Col>
-            <Col></Col>
-        </Row>
-        <br />
-        <br />
-    </Container>
+             
 </div>
     )
 }

@@ -21,7 +21,6 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
         }
     }
     
-    
     handleSubmit = (event: any) => {
         event.preventDefault();
         fetch(`http://localhost:3000/user/login`, {
@@ -59,14 +58,11 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
      }
     return (
         <div>
-<Container>
-    <Row>
-        <Col></Col> 
-            <Col id="logincard">   
-                <Card id="logincard"> 
+
+    <Row></Row>
+          <Card className="logincard"> 
                     <Form className="loginform" onSubmit={this.handleSubmit}>
                     <Label><h1>Login</h1></Label>    
-                    
                     <FormGroup>   
                     <Label htmlFor="email" className="email">Email</Label>
                     <br/>
@@ -99,12 +95,8 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
                     type="submit">Submit</Button>
                     </Form>
                 </Card>
-            </Col>
-        <Col></Col>
-    </Row>
-    <br />
-    <br />
-</Container>
+          
+   
 </div>
     )
 }

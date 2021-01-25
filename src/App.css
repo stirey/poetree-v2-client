@@ -32,6 +32,7 @@ justify-content: center;
 .bannertext{
 text-align: center;
 background-color: #e3af71;
+padding: 50px;
 }
 
 /* LOGIN FORM */
@@ -39,19 +40,43 @@ background-color: #e3af71;
 .logincard{
 text-align: center;
 justify-content: center;
-
-
+border: 10px;
 }
 
 .loginform{
 text-align: center;
 justify-content: center;
-padding: 30px;
+padding: 50px;
 background-color: #CAB2F8;
 }
 
 .loginbtn{
 padding: 5px;
+}
+
+/* AUTH */
+
+
+
+/* LOGOUT BUTTON COLUMN */
+.logoutBtnRow {
+  margin: 20px;
+  justify-content: center;
+}
+
+/* USER HOMEPAGE */
+.fas{
+  color: red;
+
+}
+
+.treeIcon {
+  max-width: 50%;
+}
+
+.homeCard {
+  justify-content: center;
+  text-align: center;
 }
 
 /* CREATE ANNOUNCEMENT */
@@ -65,4 +90,5 @@ background-color:  #CAB2F8;
 text-align: center;
 background-color: #a2c6bb;
 justify-content: center;
+padding: 50px;
 }

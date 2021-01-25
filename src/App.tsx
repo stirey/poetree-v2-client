@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Header from './components/site/Header'
+import Banner from './components/site/Banner';
+import Footer from './components/site/Footer';
 import Auth from './components/auth/Auth'
 import UserHomepage from './components/site/UserHomepage'
 
@@ -45,7 +47,6 @@ class App extends React.Component<{}, AppStates> {
   }
 
 
-
 render() {
 
   return (
@@ -54,40 +55,39 @@ render() {
 
              <Router>
                <Header /> 
+               <Banner />
                <Switch>
-                 {/* //if there is no sessiontoken show auth, if there is one, show userhomepage */}
+                 {/* if there is no sessiontoken show auth, if there is one, show userhomepage  */}
               { !this.state.sessionToken ? 
                  <Route>
                   <Auth updateToken={this.updateToken} />
                  </Route>
                   :
-                //  <Route>
                  <UserHomepage sessionToken={this.state.sessionToken} clearToken={this.clearToken} />  
-                //  </Route>
               }       
               </Switch>
              </Router>
+             <Footer />
             
-                 
-
+    </div>
+    </div>
+  );
+}
+}                 
+export default App;
 
 
               
 
             
           
-            
-           
-
-    </div>
-    </div>
-  );
-}
-}
+        
 
 
 
-export default App;
+
+
+
 
 
 
