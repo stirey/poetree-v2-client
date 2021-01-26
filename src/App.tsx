@@ -59,7 +59,7 @@ render() {
                <Switch>
                  {/* if there is no sessiontoken show auth, if there is one, show userhomepage  */}
               { !this.state.sessionToken ? 
-                 <Route>
+                 <Route path='/'>
                   <Auth updateToken={this.updateToken} />
                  </Route>
                   :
