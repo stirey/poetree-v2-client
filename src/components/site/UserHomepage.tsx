@@ -38,6 +38,7 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                          sessionToken={this.props.sessionToken}
                         />
                     </Route>
+                    
                     <Route path='/poetry/'><ViewAllPoems /></Route>
                     </Switch>
                        

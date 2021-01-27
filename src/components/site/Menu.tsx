@@ -45,6 +45,7 @@ class Menu extends React.Component {
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
             <CardText></CardText>
             <Button href='/poetry/'>EXPLORE</Button>
+            
             </CardBody>
             </Card> 
             </Col>
