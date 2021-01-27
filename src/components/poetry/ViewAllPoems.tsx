@@ -1,13 +1,41 @@
 import React from 'react';
-import { Container, Row, Button, Col, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle  } from 'reactstrap';
-import Forest from '../assets/forest.png';
+import { Form, Button } from 'reactstrap';
 
-class ViewAllPoems extends React.Component {
 
+
+ type ViewAllPoetryProps = {
+     sessionToken?: any;
+ }
+
+class ViewAllPoems extends React.Component<ViewAllPoetryProps, {}> {
+    constructor(props: ViewAllPoetryProps) {
+        super(props);
+    }
+
+    fetchPoetry = () => {
+        fetch(`http://localhost:3000/poetry/mine`, {
+            method: 'GET',
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.sessionToken
+            })
+        }).then((result) => result.json())
+            .then((poetry) => {
+                console.log(poetry)
+            })
+    }
+
+    
 
     render() {
         return (
-           <h1>testing viewallpoems component</h1>              
+            <div>
+           <h1>testing viewallpoems component</h1>
+            <Form onSubmit={this.fetchPoetry}>
+
+            <Button type="submit">submit</Button>
+            </Form>
+             </div>
         )
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Form, FormGroup, Input  } from 'reactstrap';
+import { Container, Form, FormGroup, Input, Label, Button, Row,Col } from 'reactstrap';
 
 type CreatePoetryProps = {
     sessionToken?: any;
@@ -16,7 +16,9 @@ type CreatePoetryStates = {
     green: boolean;
     blue: boolean;
     purple: boolean;
+    pink: boolean;
     black: boolean;
+    brown: boolean;
     gray: boolean;
     white: boolean;
     poemtitle: string;
@@ -38,7 +40,9 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
             green: false,
             blue: false,
             purple: false,
+            pink: false,
             black: false,
+            brown: false,
             gray: false,
             white: false,
             poemtitle: "",
@@ -64,7 +68,9 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                     green: this.state.green,
                     blue: this.state.blue,
                     purple: this.state.purple,
+                    pink: this.state.pink,
                     black: this.state.black,
+                    brown: this.state.brown,
                     gray: this.state.gray,
                     white: this.state.white,
                     poemtitle: this.state.poemtitle,
@@ -84,21 +90,37 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                 console.log(poetry);
                this.setState(
                    {//this is resetting the state back to default for next post
-                       question1: "",
-
+                        question1: "",
+                        question2: "",
+                        question3: "",
+                        red: false,
+                        orange: false,
+                        yellow: false,
+                        green: false,
+                        blue: false,
+                        purple: false,
+                        pink: false,
+                        black: false,
+                        brown: false,
+                        gray: false,
+                        white: false,
+                        poemtitle: "",
+                        lineone: "",
+                        linetwo: "",
+                        linethree: ""
                    }
                )
-
             })
         }
         render() {
             return (
                 <div>
                 <Container> 
-                    console.log('this is working');  
+                     
                 <h3>Create a Poem!</h3>
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
+                    <Label>Question 1</Label>
                         <Input
                         className="question1"
                         type="textarea"
@@ -107,6 +129,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         </Input>
                     </FormGroup>
                     <FormGroup>
+                    <Label>Question 2</Label>
                         <Input
                         className="question2"
                         type="textarea"
@@ -115,6 +138,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         </Input>
                     </FormGroup>
                     <FormGroup>
+                    <Label>Question 3</Label>
                         <Input
                         className="question3"
                         type="textarea"
@@ -122,11 +146,14 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.question3}>
                         </Input>
                     </FormGroup>
+                    <Row>
+                    <Label>Red</Label>
                     <FormGroup>
+                        <Col>
                         <Input
                         type="checkbox"
                         name="color"
-                        checked={this.state.red}
+                        checked={this.state.red === true}
                         //anonymous arrow function-helpful for doing mutltiple actions within the function
                         onClick ={ () => {
                         
@@ -135,25 +162,33 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input>
-                   
+                        </Col>
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Col>
+                    <Label>Orange</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "orange"
                         checked={this.state.orange === true}
                         onClick ={ () => {
                         
                             this.setState({
-                               orange: true 
+                               orange: true
                             })
                         }}
-                        ></Input>
-                    
+                         />{''}
+                        </Col>
+                        </FormGroup>
+                        <Col>
+                    <Label>Yellow</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "yellow"
-                        checked={this.state.yellow === !false}
+                        checked={this.state.yellow === true}
                         onClick ={ () => {
                         
                             this.setState({
@@ -161,20 +196,29 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input>
-                    
+                        </Col>
+                        <Col>
+                    <Label>Green</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "green"
-                        checked={this.state.green === !false}
-                        onChange={this.handleSubmit}
+                        checked={this.state.green === true}
+                        onClick ={ () => {
+                        
+                            this.setState({
+                               green: true 
+                            })
+                        }}
                         ></Input>
-
+                        </Col>
+                        <Col>
+                    <Label>Blue</Label>    
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "blue"
-                        checked={this.state.blue === !false}
+                        checked={this.state.blue === true}
                         onClick ={ () => {
                         
                             this.setState({
@@ -182,12 +226,14 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input>
-
+                        </Col>
+                        <Col>
+                    <Label>Purple</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "purple"
-                        checked={this.state.purple === !false}
+                        checked={this.state.purple === true}
                         onClick ={ () => {
                         
                             this.setState({
@@ -195,12 +241,29 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input>
-
+                        </Col>
+                        <Col>
+                    <Label>Pink</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
+                        name="color"
+                        value= "pink"
+                        checked={this.state.pink === true}
+                        onClick ={ () => {
+                        
+                            this.setState({
+                               pink: true 
+                            })
+                        }}
+                        ></Input>
+                        </Col>
+                        <Col>
+                    <Label>Black</Label>
+                        <Input
+                        type="checkbox"
                         name="color"
                         value= "black"
-                        checked={this.state.black === !false}
+                        checked={this.state.black === true}
                         onClick ={ () => {
                         
                             this.setState({
@@ -208,12 +271,29 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input>
-
+                        </Col>
+                        <Col>
+<                   Label>Brown</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
+                        name="color"
+                        value= "brown"
+                        checked={this.state.brown === true}
+                        onClick ={ () => {
+                        
+                            this.setState({
+                               brown: true 
+                            })
+                        }}
+                        ></Input>   
+                        </Col>
+                        <Col>
+                    <Label>Gray</Label>
+                        <Input
+                        type="checkbox"
                         name="color"
                         value= "gray"
-                        checked={this.state.gray === !false}
+                        checked={this.state.gray === true}
                         onClick ={ () => {
                         
                             this.setState({
@@ -221,21 +301,25 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                             })
                         }}
                         ></Input> 
-
+                        </Col>
+                        <Col>
+                    <Label>White</Label>
                         <Input
-                        type="radio"
+                        type="checkbox"
                         name="color"
                         value= "white"
-                        checked={this.state.white === !false}
+                        checked={this.state.white === true}
                         onClick ={ () => {
                         
                             this.setState({
                                white: true 
                             })
                         }}
-                        ></Input>           
-                    </FormGroup>
+                        ></Input>
+                        </Col>           
+                    </Row>
                     <FormGroup>
+                    <Label>Poem Title</Label>
                         <Input
                         className="poemtitle"
                         type="text"
@@ -243,13 +327,15 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.poemtitle}>
                         </Input>
 
+                    <Label>Line 1</Label>
                         <Input
                         className="lineone"
                         type="text"
                         onChange={(e) => {this.setState({lineone: e.target.value })}}
                         value={this.state.lineone}>
                         </Input>
-
+                    
+                    <Label>Line 2</Label>
                         <Input
                         className="linetwo"
                         type="text"
@@ -257,6 +343,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.linetwo}>
                         </Input>
 
+                    <Label>Line 3</Label>
                         <Input
                         className="linethree"
                         type="text"
@@ -264,7 +351,8 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.linethree}>
                         </Input>
 
-                    </FormGroup>                  
+                    </FormGroup>   
+                    <Button type="submit">Submit</Button>               
                 </Form>
 
                 </Container> 

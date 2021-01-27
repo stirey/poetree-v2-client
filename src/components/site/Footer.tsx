@@ -13,7 +13,7 @@ class Footer extends React.Component {
                 <Row className="footerRow">
                 <Col md="4"></Col>
                 <Col md="4">
-                 © Copyright 2020 CompanionPath   
+                 © Copyright 2020 PoeTree   
                 </Col>
                 <Col md="4"></Col>             
                 </Row>                          
