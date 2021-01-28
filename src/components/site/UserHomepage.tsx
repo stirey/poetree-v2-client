@@ -7,6 +7,8 @@ import Menu from '../site/Menu';
 import CreatePoetry from '../poetry/CreatePoetry';
 import ViewAllPoems from '../poetry/ViewAllPoems';
 import ViewMyPoems from '../poetry/ViewMyPoems';
+import UpdatePoetry from '../poetry/UpdatePoetry';
+import DeletePoetry from '../poetry/DeletePoetry';
 
 
 type UserHomepageProps = {
@@ -46,6 +48,14 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                     
                     <Route path='/poetry/'>
                         <ViewAllPoems />
+                    </Route>
+
+                    <Route path='/poetry/update'>
+                        <UpdatePoetry  />
+                    </Route>
+
+                    <Route path='/poetry/delete'>
+                        <DeletePoetry />
                     </Route>
                     
                     

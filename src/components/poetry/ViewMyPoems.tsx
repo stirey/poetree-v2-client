@@ -1,16 +1,16 @@
 import React from 'react';
 import { Form, Button, Container, Card, CardText,CardHeader, CardTitle,CardBody, Row, Col } from 'reactstrap';
 
+import UpdatePoetry from '../poetry/UpdatePoetry';
+import DeletePoetry from './DeletePoetry';
+
 
 type MyPoetryProps = {
-    sessionToken?: any;
-   
-    
+    sessionToken?: any;   
 }
 
 type MyPoetryStates = {
-    myPoetryPosts: any;
-    
+    myPoetryPosts: any;   
 }
 
 class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
@@ -18,8 +18,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
        super(props)
        this.fetchMyPoetry = this.fetchMyPoetry.bind(this)
        this.state = {
-           myPoetryPosts: [],
-          
+           myPoetryPosts: [],         
        }
    }
 
@@ -32,7 +31,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
 
    fetchMyPoetry = () => {
        console.log('fetch')
-       //localstorage line is same as passing props
+       //localstorage line is same as passing props. The name 'id' is set in App.tsx localStorage.setItem('id', userId);
        fetch(`http://localhost:3000/poetry/mine/${localStorage.getItem('id')}`, {
            method: 'GET',
            headers: new Headers({
@@ -74,6 +73,11 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                                        <CardText>
                                    {this.state.myPoetryPosts[index].linethree}
                                        </CardText>
+                                       
+                                       
+                                       <UpdatePoetry />
+                                       <DeletePoetry />
+
                                    </CardBody>
                                </Card>
                                </Col>
