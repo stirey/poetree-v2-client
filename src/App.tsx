@@ -11,7 +11,8 @@ import UserHomepage from './components/site/UserHomepage'
 
 
 type AppStates = {
-  sessionToken: any,  
+  sessionToken: any, 
+  userId: string, 
 }
 
 class App extends React.Component<{}, AppStates> {
@@ -19,6 +20,7 @@ class App extends React.Component<{}, AppStates> {
     super(props);
     this.state = {
       sessionToken: "",
+      userId: "",
    
     } 
   }
@@ -29,9 +31,13 @@ class App extends React.Component<{}, AppStates> {
     }
   }
 // this changes the state of this particular token, when someone signs up we want it to change it to their token so they can access their "stuff"
-  updateToken = (newToken: string) => {
+  updateToken = (newToken: string, userId: string) => {
     localStorage.setItem('token', newToken);
     this.setState({ sessionToken: newToken});
+    //what we name this it shows up in the developer tools ('id')
+    localStorage.setItem('id', userId);
+    // the parameter of this function is userId
+    this.setState({ userId: userId});
     console.log(newToken);
   }
 

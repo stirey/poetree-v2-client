@@ -44,15 +44,17 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 })
                 .then((data) => {
                     console.log(data);
-                    (this.props.updateToken(data.sessionToken));
-                    (this.setState({redirect: '/userhomepage'}));
+                    // here we are giving the paramter of updateToken
+                    this.props.updateToken(data.sessionToken, data.user.id);
+                    
+                    this.setState({redirect: '/userhomepage'});
                 })
         }
     
  render() {
-     if (this.state.redirect) {
-         return <Redirect to = {this.state.redirect} />
-     }
+    //  if (this.state.redirect) {
+    //      return <Redirect to = {this.state.redirect} />
+    //  }
     return (
         <div>
      

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row,  Col,  Button, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle  } from 'reactstrap';
+import { Switch, Route } from 'react-router-dom';
 import Tree from '../assets/tree.png';
 import Forest from '../assets/forest.png';
 import CreatePoetry from '../poetry/CreatePoetry';
@@ -44,8 +45,10 @@ class Menu extends React.Component {
             <CardTitle tag="h5">EXPLORE ALL POETRY</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
             <CardText></CardText>
-            <Button href='/poetry/'>EXPLORE</Button>
-            
+    
+            <Button href='/poetry/mine'>EXPLORE MINE</Button> 
+
+            <Button href='/poetry/'>EXPLORE ALL</Button> 
             </CardBody>
             </Card> 
             </Col>

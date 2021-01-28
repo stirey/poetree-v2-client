@@ -2,6 +2,9 @@ import React from 'react';
 import { Form, Button, Container, Card, CardText,CardHeader, CardTitle,CardBody, Row, Col } from 'reactstrap';
 
 
+import { Route } from 'react-router-dom';
+
+
 
  type ViewAllPoetryProps = {
      sessionToken?: any;
@@ -44,13 +47,11 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
         this.fetchPoetry();
     }
 
-    
 
     render() {
         return (
             <div>
-           <h1>Explore All Poetry</h1>
-            <Button href='/poetry/mine'>EXPLORE MINE</Button>
+           <h1>Explore Poetry</h1>
                    
                         <Container className="poemContainer" >
                             <Row>

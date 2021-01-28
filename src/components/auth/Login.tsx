@@ -38,6 +38,7 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
             .then((response) => {
                 if (response.status === 200) {
                     console.log("Login is successful.");
+                    
 
                 } else {
                     console.log("Login has failed.");
@@ -46,16 +47,18 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
             })
             
             .then((data) => {
-                (this.props.updateToken(data.sessionToken));
-                (this.setState({redirect: '/userhomepage'}));
+                console.log(data)
+                //line 50 props passed down from App.tsx, see two paramters below
+                this.props.updateToken(data.sessionToken, data.user.id);
+                this.setState({redirect: '/userhomepage'});
             })
     }
 
  render() {
      
-     if (this.state.redirect) {
-         return <Redirect to = {this.state.redirect} />
-     }
+    //  if (this.state.redirect) {
+    //      return <Redirect to = {this.state.redirect} />
+    //  }
     return (
         <div>
 

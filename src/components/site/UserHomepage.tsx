@@ -6,6 +6,7 @@ import Tree from '../assets/tree.png';
 import Menu from '../site/Menu';
 import CreatePoetry from '../poetry/CreatePoetry';
 import ViewAllPoems from '../poetry/ViewAllPoems';
+import ViewMyPoems from '../poetry/ViewMyPoems';
 
 
 type UserHomepageProps = {
@@ -29,7 +30,7 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
             <div>
                 
                     <Row className="logoutBtnRow">
-                        <Button className="logoutBtn" onClick={this.props.clearToken}>Logout</Button>
+                        <Button className="logoutBtn" href="/" onClick={this.props.clearToken}>Logout</Button>
                     </Row>
                     <Menu />
                     <Switch>
@@ -38,9 +39,18 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                          sessionToken={this.props.sessionToken}
                         />
                     </Route>
+            {/* the order of routes is important, and the browser will prioritize the route that can be resolved the quickest and then it stops */}
+                    <Route path='/poetry/mine'>
+                        <ViewMyPoems sessionToken={this.props.sessionToken}/>
+                    </Route>
                     
-                    <Route path='/poetry/'><ViewAllPoems /></Route>
+                    <Route path='/poetry/'>
+                        <ViewAllPoems />
+                    </Route>
+                    
+                    
                     </Switch>
+                    
                        
             </div>
         )
