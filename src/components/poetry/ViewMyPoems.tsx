@@ -6,7 +6,10 @@ import DeletePoetry from './DeletePoetry';
 
 
 type MyPoetryProps = {
-    sessionToken?: any;   
+    // the ? is saying it is optional 
+    sessionToken: any;
+     
+
 }
 
 type MyPoetryStates = {
@@ -75,7 +78,8 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                                        </CardText>
                                        
                                        
-                                       <UpdatePoetry />
+                                       <UpdatePoetry sessionToken={this.props.sessionToken} fetchPoetry={this.fetchMyPoetry} />
+                                       
                                        <DeletePoetry />
 
                                    </CardBody>

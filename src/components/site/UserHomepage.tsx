@@ -14,6 +14,7 @@ import DeletePoetry from '../poetry/DeletePoetry';
 type UserHomepageProps = {
     sessionToken: any;
     clearToken: any;
+    
 }
 
 //these are the states in this component. UserHomepage is the parent of CreatePoetry.
@@ -42,6 +43,8 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                         />
                     </Route>
             {/* the order of routes is important, and the browser will prioritize the route that can be resolved the quickest and then it stops */}
+                
+
                     <Route path='/poetry/mine'>
                         <ViewMyPoems sessionToken={this.props.sessionToken}/>
                     </Route>
@@ -50,9 +53,9 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                         <ViewAllPoems />
                     </Route>
 
-                    <Route path='/poetry/update'>
-                        <UpdatePoetry  />
-                    </Route>
+                    {/* <Route path='/poetry/update'>
+                        <UpdatePoetry sessionToken={this.props.sessionToken}/>
+                    </Route> */}
 
                     <Route path='/poetry/delete'>
                         <DeletePoetry />
