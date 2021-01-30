@@ -8,12 +8,14 @@ import DeletePoetry from './DeletePoetry';
 type MyPoetryProps = {
     // the ? is saying it is optional 
     sessionToken: any;
+    
      
 
 }
 
 type MyPoetryStates = {
-    myPoetryPosts: any;   
+    myPoetryPosts: any;  
+    // setOpenModal: boolean; 
 }
 
 class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
@@ -21,7 +23,8 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
        super(props)
        this.fetchMyPoetry = this.fetchMyPoetry.bind(this)
        this.state = {
-           myPoetryPosts: [],         
+           myPoetryPosts: [], 
+        //    setOpenModal: true,        
        }
    }
 
@@ -78,7 +81,11 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                                        </CardText>
                                        
                                        
-                                       <UpdatePoetry sessionToken={this.props.sessionToken} fetchPoetry={this.fetchMyPoetry} />
+                                       <UpdatePoetry 
+                                    //    setOpenModal={this.state.setOpenModal}
+                                       sessionToken={this.props.sessionToken} 
+                                       fetchPoetry={this.fetchMyPoetry}
+                                        />
                                        
                                        <DeletePoetry />
 

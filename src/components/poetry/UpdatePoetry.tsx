@@ -6,6 +6,7 @@ type UpdatePoetryProps = {
     sessionToken: any;
     //with the () it says it is a function and the any is the return type. If we have no return, we could put the word void there...any, number, string....
     fetchPoetry: () => any;
+    // setOpenModal: boolean;
 }
 // state is a variable local to the file I am working in
 type UpdatePoetryState = {
@@ -28,8 +29,12 @@ type UpdatePoetryState = {
     lineone: string;
     linetwo: string;
     linethree: string;
+    isModalButtonClicked: boolean;
+   
     
 }
+
+
 
 class UpdatePoetry extends React.Component<UpdatePoetryProps, UpdatePoetryState> {
 constructor(props: UpdatePoetryProps) {
@@ -53,8 +58,17 @@ constructor(props: UpdatePoetryProps) {
             lineone: "",
             linetwo: "",
             linethree: "",
-        }
+            isModalButtonClicked: false,
+            
+        }         
     }
+// toggle between open and close modal. the default state of open modal is true, there the toggle will change it to false !openModal
+// toggle = () => setOpenModal(!openModal);
+
+buttonClickedHandler = () => {
+    this.setState({isModalButtonClicked: !this.state.isModalButtonClicked});
+}
+    
 
 // this is what changes everything on the backend
         handleSubmit = (event: any) => {
@@ -81,7 +95,9 @@ constructor(props: UpdatePoetryProps) {
                         lineone: this.state.lineone,
                         linetwo: this.state.linetwo,
                         linethree: this.state.linethree,  
+                        
                     }
+                    
                 }),
                 headers: new Headers({
                     'Content-Type': 'application/json',
@@ -91,15 +107,18 @@ constructor(props: UpdatePoetryProps) {
                 console.log(response);
                 // this refreshes the website
                 this.props.fetchPoetry();
+            
 
                 // this.props.updateOff();
             })   
-            }
+         
+            }      
         
     render() {
         return(
             <div>
-            <Modal isOpen={true}>
+                <Modal isOpen={this.state.isModalButtonClicked} modalButton={this.buttonClickedHandler}>
+            {/* <Modal isOpen={this.state.openModal} ontoggle={this.toggleModal} className="modal"> */}
                 <ModalHeader>Edit Poem</ModalHeader>
                 <ModalBody>
                     <Form>
@@ -108,8 +127,9 @@ constructor(props: UpdatePoetryProps) {
                         <Input
                         className="question1"
                         type="textarea"
+                        value={this.state.question1}
                         onChange={(e) => {this.setState({question1: e.target.value })}}
-                        value={this.state.question1}>
+                        >
                         </Input>
                     </FormGroup>
                     <FormGroup>
@@ -337,14 +357,13 @@ constructor(props: UpdatePoetryProps) {
 
                     </FormGroup>   
                     <Button type="submit" onClick={this.handleSubmit}>Submit</Button>  
+                    <Button type="submit">Cancel</Button> 
                     {/* <Button type="submit" onClick={!this.handleSubmit}>Cancel</Button>              */}
-                </Form>
-                    
+                </Form>                  
                 </ModalBody>
+           </Modal>
 
-            </Modal>
-
-            <Button type="submit" href='/poetry/update'>
+            <Button onClick={this.buttonClickedHandler} type="submit" href='/poetry/update'>
             Edit Poetry
             </Button>
             </div>

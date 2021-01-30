@@ -13,6 +13,13 @@ import UserHomepage from './components/site/UserHomepage'
 type AppStates = {
   sessionToken: any, 
   userId: string, 
+  
+}
+
+type AppProps = {
+  incrementMe: number;
+  setIncrementMe: (e: number) => any;
+  count: number;
 }
 
 class App extends React.Component<{}, AppStates> {
@@ -50,6 +57,7 @@ class App extends React.Component<{}, AppStates> {
  componentDidMount() { 
     this.getToken();
     console.log('this is a test')
+    
   }
 
 
@@ -69,7 +77,10 @@ render() {
                   <Auth updateToken={this.updateToken} />
                  </Route>
                   :
-                 <UserHomepage sessionToken={this.state.sessionToken} clearToken={this.clearToken} />  
+                 <UserHomepage 
+                 sessionToken={this.state.sessionToken} 
+                 clearToken={this.clearToken}
+                 />  
               }       
               </Switch>
              </Router>

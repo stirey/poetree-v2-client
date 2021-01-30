@@ -11,10 +11,18 @@ import UpdatePoetry from '../poetry/UpdatePoetry';
 import DeletePoetry from '../poetry/DeletePoetry';
 
 
+
 type UserHomepageProps = {
     sessionToken: any;
     clearToken: any;
     
+    
+}
+
+type UserHomepageState = {
+    incrementMe: number;
+    setIncrementMe: (e: number) => any;
+    count: number;
 }
 
 //these are the states in this component. UserHomepage is the parent of CreatePoetry.
@@ -22,11 +30,26 @@ type UserHomepageProps = {
 //Add a ternary to change the views on the homepage
 
 
-class UserHomepage extends React.Component<UserHomepageProps, {}> {
+class UserHomepage extends React.Component<UserHomepageProps, UserHomepageState> {
     constructor(props: UserHomepageProps) {
-        super(props);
-                
+        super(props)
+        this.state = {
+            incrementMe: 0,
+            count: 0,
+
+            setIncrementMe: (e) => {
+                this.setState({
+                    incrementMe: e
+                })
+            }           
+        }               
 }
+            incrementMe = () => {
+                let newCount = this.state.count + 1
+                this.setState({
+                    count: newCount
+                })
+            } 
     
     render() {
         return(
@@ -50,8 +73,9 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                     </Route>
                     
                     <Route path='/poetry/'>
-                        <ViewAllPoems />
+                        <ViewAllPoems incrementMe={this.state.incrementMe} setIncrementMe={this.state.setIncrementMe} count={this.state.count}  />
                     </Route>
+
 
                     {/* <Route path='/poetry/update'>
                         <UpdatePoetry sessionToken={this.props.sessionToken}/>

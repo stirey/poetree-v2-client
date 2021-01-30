@@ -1,18 +1,19 @@
 import React from 'react';
 import { Form, Button, Container, Card, CardText,CardHeader, CardTitle,CardBody, Row, Col } from 'reactstrap';
 
-
+// import AddEmoji from '../emoji/AddEmoji';
 import { Route } from 'react-router-dom';
-
-
 
  type ViewAllPoetryProps = {
      sessionToken?: any;
-     
+     incrementMe: number;
+     setIncrementMe: (e: number) => any;
+     count: number;   
  }
 
  type ViewAllPoetryStates = {
-     poetryPosts: any;
+    poetryPosts: any;
+   
  }
 
 class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStates> {
@@ -21,14 +22,17 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
         this.fetchPoetry = this.fetchPoetry.bind(this)
         this.state = {
             poetryPosts: [],
+          
         }
     }
-
+// postArray 
     setAllPoetryPosts = (postArray: any) => {
         console.log("postArray: ", postArray)
         this.setState({poetryPosts: postArray})
     }
-    
+    // need to set state for each poem to be incremented so it doesn't increment all poems
+    // Notes: I can't pass props to a parent. It can only be passed down to children.
+  
 
     fetchPoetry = () => {
         fetch(`http://localhost:3000/poetry/`, {
@@ -40,11 +44,13 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
         }).then((result) => result.json())
             .then((poetry) => {
                 this.setAllPoetryPosts(poetry)
+                
             })
     }
 
     componentDidMount() {
         this.fetchPoetry();
+        
     }
 
 
@@ -71,6 +77,9 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                                         <CardText>
                                     {this.state.poetryPosts[index].linethree}
                                         </CardText>
+{/* think about how to weave in the index to the button click */}
+                                        <Button onClick={(e) => this.props.incrementMe}> Likes: {this.props.count} </Button>
+
                                     </CardBody>
                                 </Card>
                                 </Col>
