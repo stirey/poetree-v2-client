@@ -22,12 +22,14 @@ type UserHomepageProps = {
 type UserHomepageState = {
     incrementMe: number;
     setIncrementMe: (e: number) => any;
-    count: number;
+    like: number;
+    setLike: (e: number) => any;
 }
 
 //these are the states in this component. UserHomepage is the parent of CreatePoetry.
 //I don't need type states here because it is already in the child (createPoetry) I only need to setState in one place. It could be in this compoenent and then I wouldn't need it in CreatePoetry.
 //Add a ternary to change the views on the homepage
+// add a fetch/handlesubmit for the like button to synce with database
 
 
 class UserHomepage extends React.Component<UserHomepageProps, UserHomepageState> {
@@ -35,19 +37,26 @@ class UserHomepage extends React.Component<UserHomepageProps, UserHomepageState>
         super(props)
         this.state = {
             incrementMe: 0,
-            count: 0,
-
+            like: 0,
+            
             setIncrementMe: (e) => {
                 this.setState({
                     incrementMe: e
                 })
-            }           
-        }               
+            },
+            setLike: (e) => {
+                this.setState({
+                    
+                    like: e
+                })
+                console.log(this.state.like) 
+            }}
+         this.incrementMe = this.incrementMe.bind(this);              
 }
             incrementMe = () => {
-                let newCount = this.state.count + 1
+                let newCount = this.state.like + 1
                 this.setState({
-                    count: newCount
+                    like: newCount
                 })
             } 
     
@@ -73,7 +82,7 @@ class UserHomepage extends React.Component<UserHomepageProps, UserHomepageState>
                     </Route>
                     
                     <Route path='/poetry/'>
-                        <ViewAllPoems incrementMe={this.state.incrementMe} setIncrementMe={this.state.setIncrementMe} count={this.state.count}  />
+                        <ViewAllPoems incrementMe={this.state.incrementMe} setIncrementMe={this.state.setIncrementMe} like={this.state.like}  />
                     </Route>
 
 

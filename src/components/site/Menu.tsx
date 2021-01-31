@@ -16,7 +16,10 @@ class Menu extends React.Component {
             <Col sm="2"></Col>
             <Col>
             <Card className="homeCard">
-            <CardImg className="treeIcon" top width="100%" src={Tree} alt="Card image cap" />
+                <Row className ="my-auto"> 
+                <CardImg className="treeIcon" top width="100%" src={Tree} alt="Card image cap" />
+                </Row>
+           
             <CardBody>
             <CardTitle tag="h5">CREATE A POEM</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
@@ -32,7 +35,7 @@ class Menu extends React.Component {
             <CardBody>
             <CardTitle tag="h5">TEACHER ANNOUNCEMENT</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>
-            <CardText></CardText>
+            <CardText>Hello Students! I hope you had a great weekend! This weeks poetry challenge is SCIENCE. Create a post related to keywords we learned last week related to the lifecycle of a butterfly.</CardText>
             <Button>CONNECT</Button>
             </CardBody>
             </Card>
@@ -40,7 +43,9 @@ class Menu extends React.Component {
 
             <Col>
             <Card className="homeCard">
+            <Row className ="my-auto"> 
             <CardImg className="treeIcon" top width="100%" src={Forest} alt="Card image cap" />
+            </Row>
             <CardBody>
             <CardTitle tag="h5">EXPLORE ALL POETRY</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted"></CardSubtitle>

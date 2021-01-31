@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Button, Container, Card, CardText,CardHeader, CardTitle,CardBody, Row, Col } from 'reactstrap';
 
+
 // import AddEmoji from '../emoji/AddEmoji';
 import { Route } from 'react-router-dom';
 
@@ -8,7 +9,7 @@ import { Route } from 'react-router-dom';
      sessionToken?: any;
      incrementMe: number;
      setIncrementMe: (e: number) => any;
-     count: number;   
+     like: number;   
  }
 
  type ViewAllPoetryStates = {
@@ -48,16 +49,16 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
             })
     }
 
+    
     componentDidMount() {
         this.fetchPoetry();
         
     }
 
-
     render() {
         return (
             <div>
-           <h1>Explore Poetry</h1>
+           <h1>All Poetry</h1>
                    
                         <Container className="poemContainer" >
                             <Row>
@@ -78,8 +79,15 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                                     {this.state.poetryPosts[index].linethree}
                                         </CardText>
 {/* think about how to weave in the index to the button click */}
-                                        <Button onClick={(e) => this.props.incrementMe}> Likes: {this.props.count} </Button>
+                                        {/* <Button onClick={(e) => this.props.incrementMe}> Likes: {this.props.heart} </Button> */}
 
+                                      
+                                        
+                                        <CardText>
+                                        <Button type="button" className="btn btn-danger btn-circle"><i className="fa fa-heart"></i>
+                                        </Button>
+                                        {this.state.poetryPosts[index].like}
+                                        </CardText>
                                     </CardBody>
                                 </Card>
                                 </Col>
@@ -97,3 +105,8 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                         
                     
 export default ViewAllPoems;
+
+
+
+// RESOURCES
+//https://reactjs.org/docs/hooks-state.html#equivalent-class-example

@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { Redirect } from "react-router-dom";
 import {Button, Modal, ModalHeader, ModalBody, Row, Input, Label, Col, Form, FormGroup} from 'reactstrap';
 // props always come from other files
 type UpdatePoetryProps = {
     sessionToken: any;
     //with the () it says it is a function and the any is the return type. If we have no return, we could put the word void there...any, number, string....
     fetchPoetry: () => any;
-    // setOpenModal: boolean;
+    closeModal: () => void;
+
 }
 // state is a variable local to the file I am working in
 type UpdatePoetryState = {
@@ -29,8 +30,25 @@ type UpdatePoetryState = {
     lineone: string;
     linetwo: string;
     linethree: string;
-    isModalButtonClicked: boolean;
-   
+    modal: boolean,
+    setQ1: (e: any) => void;
+    setQ2: (e: any) => void;
+    setQ3: (e: any) => void;
+    setRed: (e: any) => void;
+    setOrange: (e: any) => void;
+    setYellow: (e: any) => void;
+    setGreen: (e: any) => void;
+    setBlue: (e: any) => void;
+    setPurple: (e: any) => void;
+    setPink: (e: any) => void;
+    setBlack: (e: any) => void;
+    setBrown: (e: any) => void;
+    setGray: (e: any) => void;
+    setWhite: (e: any) => void;
+    setPoemTitle: (e: any) => void;
+    setLineOne: (e: any) => void;
+    setLineTwo: (e: any) => void;
+    setLineThree: (e: any) => void;
     
 }
 
@@ -40,6 +58,7 @@ class UpdatePoetry extends React.Component<UpdatePoetryProps, UpdatePoetryState>
 constructor(props: UpdatePoetryProps) {
         super(props)
         this.state={
+            modal: false,
             question1: "",
             question2: "",
             question3: "",
@@ -58,18 +77,101 @@ constructor(props: UpdatePoetryProps) {
             lineone: "",
             linetwo: "",
             linethree: "",
-            isModalButtonClicked: false,
             
+            setQ1: (e) => {
+                this.setState({
+                    question1: e
+                })
+            },
+            setQ2: (e) => {
+                this.setState({
+                    question2: e
+                })
+            },
+            setQ3: (e) => {
+                this.setState({
+                    question3: e
+                })
+            },
+            setRed: (e) => {
+                this.setState({
+                    red: e
+                })
+            },
+            setOrange: (e) => {
+                this.setState({
+                    orange: e
+                })
+            },
+            setYellow: (e) => {
+                this.setState({
+                    yellow: e
+                })
+            },
+            setGreen: (e) => {
+                this.setState({
+                    green: e
+                })
+            },
+            setBlue: (e) => {
+                this.setState({
+                    blue: e
+                })
+            },
+            setPurple: (e) => {
+                this.setState({
+                    purple: e
+                })
+            },
+            setPink: (e) => {
+                this.setState({
+                    pink: e
+                })
+            },
+            setBlack: (e) => {
+                this.setState({
+                    black: e
+                })
+            },
+            setBrown: (e) => {
+                this.setState({
+                    brown: e
+                })
+            },
+            setGray: (e) => {
+                this.setState({
+                    gray: e
+                })
+            },
+            setWhite: (e) => {
+                this.setState({
+                    white: e
+                })
+            },
+            setPoemTitle: (e) => {
+                this.setState({
+                    poemtitle: e
+                })
+            },
+            setLineOne: (e) => {
+                this.setState({
+                    lineone: e
+                })
+            },
+            setLineTwo: (e) => {
+                this.setState({
+                    linetwo: e
+                })
+            },
+            setLineThree: (e) => {
+                this.setState({
+                    linethree: e
+                })
+            },
         }         
     }
 // toggle between open and close modal. the default state of open modal is true, there the toggle will change it to false !openModal
 // toggle = () => setOpenModal(!openModal);
-
-buttonClickedHandler = () => {
-    this.setState({isModalButtonClicked: !this.state.isModalButtonClicked});
-}
-    
-
 // this is what changes everything on the backend
         handleSubmit = (event: any) => {
             event.preventDefault();
@@ -104,21 +206,34 @@ buttonClickedHandler = () => {
                     'Authorization': this.props.sessionToken
               })
             }).then((response) => {
-                console.log(response);
-                // this refreshes the website
+                if (response.status === 200) {
+                    console.log("Poetry updated!");
+                    console.log(response);
+                } else {
+                    console.log("Poetry update not successful.")
+                } 
+                return response.json();
+            }).then((data) => {
+                console.log(data);
+                this.props.closeModal();
+                 // this refreshes the website
                 this.props.fetchPoetry();
-            
+            })
+        };
+               
+        componentDidMount() {
+            if (!this.props.sessionToken) {
+                return <Redirect to="/userhomepage" />
+            } else {
+                return <Redirect to="/userhomepage" />
+            }
+        }    
 
-                // this.props.updateOff();
-            })   
-         
-            }      
-        
+            
     render() {
         return(
             <div>
-                <Modal isOpen={this.state.isModalButtonClicked} modalButton={this.buttonClickedHandler}>
-            {/* <Modal isOpen={this.state.openModal} ontoggle={this.toggleModal} className="modal"> */}
+                <Modal isOpen={true}>
                 <ModalHeader>Edit Poem</ModalHeader>
                 <ModalBody>
                     <Form>
@@ -126,9 +241,10 @@ buttonClickedHandler = () => {
                     <Label>Question 1</Label>
                         <Input
                         className="question1"
-                        type="textarea"
+                        type="textarea"                     
+                        onChange={(e) => { this.state.setQ1(e.target.value)}}
                         value={this.state.question1}
-                        onChange={(e) => {this.setState({question1: e.target.value })}}
+                        // onChange={(e) => {this.setState({question1: e.target.value })}}
                         >
                         </Input>
                     </FormGroup>
@@ -137,7 +253,8 @@ buttonClickedHandler = () => {
                         <Input
                         className="question2"
                         type="textarea"
-                        onChange={(e) => {this.setState({question2: e.target.value })}}
+                        onChange={(e) => { this.state.setQ2(e.target.value)}}
+                        // onChange={(e) => {this.setState({question2: e.target.value })}}
                         value={this.state.question2}>
                         </Input>
                     </FormGroup>
@@ -146,7 +263,8 @@ buttonClickedHandler = () => {
                         <Input
                         className="question3"
                         type="textarea"
-                        onChange={(e) => {this.setState({question3: e.target.value })}}
+                        onChange={(e) => { this.state.setQ3(e.target.value)}}
+                        // onChange={(e) => {this.setState({question3: e.target.value })}}
                         value={this.state.question3}>
                         </Input>
                     </FormGroup>
@@ -356,14 +474,15 @@ buttonClickedHandler = () => {
                         </Input>
 
                     </FormGroup>   
-                    <Button type="submit" onClick={this.handleSubmit}>Submit</Button>  
-                    <Button type="submit">Cancel</Button> 
+                    <Button type="submit" id="submitBtn" onClick={this.handleSubmit}>Update</Button>
+
+                    <Button type="button" id="cancelBtn" onClick={this.props.closeModal}>Cancel</Button> 
                     {/* <Button type="submit" onClick={!this.handleSubmit}>Cancel</Button>              */}
                 </Form>                  
                 </ModalBody>
            </Modal>
 
-            <Button onClick={this.buttonClickedHandler} type="submit" href='/poetry/update'>
+            <Button type="submit" href='/poetry/update'>
             Edit Poetry
             </Button>
             </div>
@@ -373,3 +492,18 @@ buttonClickedHandler = () => {
 
 
 export default UpdatePoetry;
+
+//try this to fix the modal
+// openModal = ()=> {
+// this.setState({openModal: true})}
+// closeModal = () => {
+// this.setState({openModal:false})
+// }
+
+// type boolean
+
+//then make a button to close modal like this
+//<Button onClick={this.closeModal>
+// Close
+// </Button>
+//The Modal is called up in ViewRequestPost where it is rendering EditRequestPost.
