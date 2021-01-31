@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
-import {Redirect} from 'react-router-dom';
+import { Row,Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
+
 
 type LoginProps = {
     email: string;
@@ -55,10 +55,7 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
     }
 
  render() {
-     
-    //  if (this.state.redirect) {
-    //      return <Redirect to = {this.state.redirect} />
-    //  }
+      
     return (
         <div>
 
@@ -97,14 +94,11 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
                     <Button 
                     type="submit">Submit</Button>
                     </Form>
-                </Card>
-          
-   
+                </Card> 
 </div>
     )
 }
 }
-
 
 export default (Login);
 

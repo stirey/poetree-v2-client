@@ -1,20 +1,17 @@
 import React from 'react';
-import { Form, Button, Container, Card, CardText,CardHeader, CardTitle,CardBody, Row, Col } from 'reactstrap';
+import { Button, Container, Card, CardText, CardTitle,CardBody, Row, Col } from 'reactstrap';
 
 
-// import AddEmoji from '../emoji/AddEmoji';
-import { Route } from 'react-router-dom';
+
 
  type ViewAllPoetryProps = {
-     sessionToken?: any;
-     incrementMe: number;
-     setIncrementMe: (e: number) => any;
-     like: number;   
+     sessionToken: string;
+       
  }
 
  type ViewAllPoetryStates = {
     poetryPosts: any;
-   
+    
  }
 
 class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStates> {
@@ -23,6 +20,7 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
         this.fetchPoetry = this.fetchPoetry.bind(this)
         this.state = {
             poetryPosts: [],
+            
           
         }
     }
@@ -47,6 +45,22 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                 this.setAllPoetryPosts(poetry)
                 
             })
+    }
+
+    incrementLikes = (event: any) => {
+        
+        fetch(`http://localhost:3000/emoji/create/${event}`, {
+            method: 'POST',
+        
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': this.props.sessionToken
+            })
+        })
+        .then((response) => response.json())
+        .then((data) => this.fetchPoetry())
+        
+        .catch((err) => console.log(err))
     }
 
     
@@ -78,13 +92,14 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                                         <CardText>
                                     {this.state.poetryPosts[index].linethree}
                                         </CardText>
-{/* think about how to weave in the index to the button click */}
-                                        {/* <Button onClick={(e) => this.props.incrementMe}> Likes: {this.props.heart} </Button> */}
 
-                                      
-                                        
                                         <CardText>
-                                        <Button type="button" className="btn btn-danger btn-circle"><i className="fa fa-heart"></i>
+                                            {/*//////////// add an event handler here?? //////////*/}
+                                        <Button 
+                                        
+                                        onClick={() => {this.incrementLikes(event.id)}} 
+                                        type="button" 
+                                        className="btn btn-danger btn-circle"><i className="fa fa-heart"></i>
                                         </Button>
                                         {this.state.poetryPosts[index].like}
                                         </CardText>
@@ -98,12 +113,10 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                             </Row>   
                         </Container>
                     </div>
-
         )
     }
 }
-                        
-                    
+                                            
 export default ViewAllPoems;
 
 

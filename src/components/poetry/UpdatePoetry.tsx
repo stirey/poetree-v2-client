@@ -7,6 +7,7 @@ type UpdatePoetryProps = {
     //with the () it says it is a function and the any is the return type. If we have no return, we could put the word void there...any, number, string....
     fetchPoetry: () => any;
     closeModal: () => void;
+    eventId: number;
 
 }
 // state is a variable local to the file I am working in
@@ -175,7 +176,7 @@ constructor(props: UpdatePoetryProps) {
 // this is what changes everything on the backend
         handleSubmit = (event: any) => {
             event.preventDefault();
-            fetch(`http://localhost:3000/poetry/update/${localStorage.getItem('id')}`, {
+            fetch(`http://localhost:3000/poetry/update/${this.props.eventId}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     poetry: {

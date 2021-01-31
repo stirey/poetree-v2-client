@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
-import { Redirect } from 'react-router-dom';
+import {  Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
+
 
 type RegisterProps = {
     email: string;
@@ -57,11 +57,10 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
     //  }
     return (
         <div>
-     
-                    <Card id="logincard">  
-                        <Form className="loginform" onSubmit={this.handleSubmit}>
-                            <Label><h1>Signup</h1></Label>    
-                            <FormGroup>   
+            <Card id="logincard">  
+                <Form className="loginform" onSubmit={this.handleSubmit}>
+                    <Label><h1>Signup</h1></Label>    
+                        <FormGroup>   
                             <Label htmlFor="email" className="email">Email</Label>
                             <br/>
 
@@ -81,14 +80,13 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                             placeholder="enter password"  
                             onChange={(e) => this.props.setPassword(e.target.value)}
                             value={this.props.password} />
-                            </FormGroup> 
+                        </FormGroup> 
                             <br/>
     
                             <Button 
                             type="submit">Submit</Button>
-                            </Form>
-                    </Card>
-             
+                </Form>
+            </Card>            
 </div>
     )
 }

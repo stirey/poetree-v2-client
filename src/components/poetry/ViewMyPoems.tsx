@@ -1,20 +1,22 @@
 import React from 'react';
-import { Form, Button, Container, Card, CardText, CardTitle,CardBody, Row, Col, Modal } from 'reactstrap';
+import { Button, Container, Card, CardText, CardTitle,CardBody, Row, Col, Modal } from 'reactstrap';
 
 import UpdatePoetry from '../poetry/UpdatePoetry';
-import DeletePoetry from './DeletePoetry';
+
 
 
 type MyPoetryProps = {
     // the ? is saying it is optional 
     sessionToken: any;
+   
 }
 
 type MyPoetryStates = {
     myPoetryPosts: any;  
     modal: boolean;
     openModal: boolean;
-    id: number;
+    // id: number;
+    
 }
 
 class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
@@ -25,7 +27,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
            myPoetryPosts: [], 
            modal: false,
            openModal: false,
-           id: 0,
+        //    id: 0,
                
        };
       this.fetchMyPoetry = this.fetchMyPoetry.bind(this); 
@@ -56,9 +58,11 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                this.setMyPoetryPosts(data)
            })
         }
-
+// arguments an params can be called seperate things
         deletePoem = (event: any) => {
-            fetch(`http://localhost:3000/poetry/delete/${this.state.id}`, {
+            // event refers to the id of the poem
+            console.log(event)
+            fetch(`http://localhost:3000/poetry/delete/${event}`, {
                 method: 'DELETE',
                 headers: new Headers({
                     'Content-Type': 'application/json',
@@ -112,8 +116,9 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                                             <Button 
                                             type="button" 
                                             className="deletePoem"
-                                            onClick={this.deletePoem}>
-                                                Delete
+                                            //event is holding onto the values, targets the exact poem, this reps the id of the poem we want to delete (event: id)
+                                            onClick={() => {this.deletePoem(event.id)}}>
+                                            Delete
                                             </Button>
                                             
                                             </Col>
@@ -122,6 +127,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
                                </Card>                          
                             <Modal isOpen={this.state.openModal}>
                                  <UpdatePoetry 
+                                       eventId={event.id}
                                        sessionToken={this.props.sessionToken}
                                        closeModal={this.closeModal} 
                                        fetchPoetry={this.fetchMyPoetry}

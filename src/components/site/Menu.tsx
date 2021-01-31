@@ -1,14 +1,11 @@
 import React from 'react';
-import { Container, Row,  Col,  Button, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle  } from 'reactstrap';
-import { Switch, Route } from 'react-router-dom';
+import { Row,  Col,  Button, Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle  } from 'reactstrap';
+
 import Tree from '../assets/tree.png';
 import Forest from '../assets/forest.png';
-import CreatePoetry from '../poetry/CreatePoetry';
+
 
 class Menu extends React.Component {
-
-
-
     render() {
         return (
 
