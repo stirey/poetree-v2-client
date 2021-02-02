@@ -85,8 +85,13 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
    render() {
        return (
            <div>
-          <h1>My Poetry</h1>
+               <Row className="myPoetryTitleRow">
+                   
+          <h1 className="headerTxt">My Poetry</h1>
+                   
+                </Row>
                   <div>     
+                      
                            {this.state.myPoetryPosts.length > 0 ? (this.state.myPoetryPosts.map((event: any, index: any) => (
                             <Container key={this.state.myPoetryPosts.id} className="poemContainer" >
                                <Card className="poemCard"  >

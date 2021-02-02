@@ -72,14 +72,15 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
     render() {
         return (
             <div>
-           <h1>All Poetry</h1>
-                   
+                <Row className="allPoetryTitleRow">
+           <h1 className="headerTxt">All Poetry</h1>
+                </Row>   
                         <Container className="poemContainer" >
                             <Row>
                             {this.state.poetryPosts.length > 0 ? (this.state.poetryPosts.map((event: any, index: any) => (
                                 <Col sm="4">
                                 <Card  key={this.state.poetryPosts.id} className="poemCard"  >
-                                    <CardBody>
+                                    <CardBody className="headerTxt">
                                         <CardTitle tag="h4">
                                     {this.state.poetryPosts[index].poemtitle}
                                         </CardTitle>
@@ -94,7 +95,7 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
                                         </CardText>
 
                                         <CardText>
-                                            {/*//////////// add an event handler here?? //////////*/}
+                                          
                                         <Button 
                                         
                                         onClick={() => {this.incrementLikes(event.id)}} 

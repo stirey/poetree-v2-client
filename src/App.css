@@ -126,6 +126,8 @@ justify-content: center;
 .homeCard {
   justify-content: center !important;
   text-align: center !important;
+  font-family: 'Londrina Solid', cursive;
+  
 }
 
 /* CREATE ANNOUNCEMENT */
@@ -147,6 +149,10 @@ justify-content: space-evenly space-around center;
   
 }
 
+.poemCard {
+  margin: 3%;
+}
+
 .btn-circle {
   background-color: red !important;
   width: 40px;
@@ -158,19 +164,25 @@ justify-content: space-evenly space-around center;
   line-height: 1.33;
 }
 
+/* CREATE POETRY CARD */
+
+.createPoetryCard {
+  padding: 10%;
+  margin-top: 5%;
+  margin-bottom: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color:  #CAB2F8;
+}
+
+.headerTxtHaiku {
+  font-family: 'Londrina Solid', cursive;
+ font-family: 'Montserrat', sans-serif;
+ 
+}
 
 
-/* .btn-circle {
-  width: 30px;
-  height: 30px;
-  padding: 6px 0px;
-  border-radius: 50%;
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.42857;
-} */
 
-/* FOOTER */
 
 .footer{
 text-align: center;
@@ -181,4 +193,32 @@ padding: 50px;
 
 .footerTxt {
   color: white;
+}
+
+/* MY POETRY SORT RESULTS */
+
+.myPoetryTitleRow {
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.myPoetrybtn {
+  margin: 2%;
+}
+
+/*  ALL POETRY SORT RESULTS */
+
+.allPoetryTitleRow {
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.allPoetrybtn {
+  margin: 2%;
+}
+
+/* MENU */
+
+.menuTitles {
+  font-family: 'Londrina Solid', cursive;
 }

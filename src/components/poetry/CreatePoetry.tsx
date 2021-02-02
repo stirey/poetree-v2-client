@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Form, FormGroup, Input, Label, Button, Row,Col } from 'reactstrap';
+import { Container, Form, FormGroup, Input, Label, Button, Row,Col, Card } from 'reactstrap';
 
 type CreatePoetryProps = {
     sessionToken?: any;
@@ -7,48 +7,50 @@ type CreatePoetryProps = {
 }
 
 type CreatePoetryStates = {
-    question1: string;
-    question2: string;
-    question3: string;
-    red: boolean;
-    orange: boolean;
-    yellow: boolean;
-    green: boolean;
-    blue: boolean;
-    purple: boolean;
-    pink: boolean;
-    black: boolean;
-    brown: boolean;
-    gray: boolean;
-    white: boolean;
+    // question1: string;
+    // question2: string;
+    // question3: string;
+    // red: boolean;
+    // orange: boolean;
+    // yellow: boolean;
+    // green: boolean;
+    // blue: boolean;
+    // purple: boolean;
+    // pink: boolean;
+    // black: boolean;
+    // brown: boolean;
+    // gray: boolean;
+    // white: boolean;
     poemtitle: string;
     lineone: string;
     linetwo: string;
     linethree: string;
+    event: number;
 }
 
 class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryStates> {
     constructor(props: CreatePoetryProps) {
         super(props)
         this.state = { //initial state before any user input or anythign that will alter them
-            question1: "",
-            question2: "",
-            question3: "",
-            red: false,
-            orange: false,
-            yellow: false,
-            green: false,
-            blue: false,
-            purple: false,
-            pink: false,
-            black: false,
-            brown: false,
-            gray: false,
-            white: false,
+            // question1: "",
+            // question2: "",
+            // question3: "",
+            // red: false,
+            // orange: false,
+            // yellow: false,
+            // green: false,
+            // blue: false,
+            // purple: false,
+            // pink: false,
+            // black: false,
+            // brown: false,
+            // gray: false,
+            // white: false,
             poemtitle: "",
             lineone: "",
             linetwo: "",
             linethree: "", 
+            event: 0,
         }; 
     }
     // when you use arrow functions you don't need to use bind
@@ -59,20 +61,20 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
             method: 'POST',
             body: JSON.stringify({
                 poetry: { //talking to the backend
-                    question1: this.state.question1,
-                    question2: this.state.question2,
-                    question3: this.state.question3,
-                    red: this.state.red,
-                    orange: this.state.orange,
-                    yellow: this.state.yellow,
-                    green: this.state.green,
-                    blue: this.state.blue,
-                    purple: this.state.purple,
-                    pink: this.state.pink,
-                    black: this.state.black,
-                    brown: this.state.brown,
-                    gray: this.state.gray,
-                    white: this.state.white,
+                    // question1: this.state.question1,
+                    // question2: this.state.question2,
+                    // question3: this.state.question3,
+                    // red: this.state.red,
+                    // orange: this.state.orange,
+                    // yellow: this.state.yellow,
+                    // green: this.state.green,
+                    // blue: this.state.blue,
+                    // purple: this.state.purple,
+                    // pink: this.state.pink,
+                    // black: this.state.black,
+                    // brown: this.state.brown,
+                    // gray: this.state.gray,
+                    // white: this.state.white,
                     poemtitle: this.state.poemtitle,
                     lineone: this.state.lineone,
                     linetwo: this.state.linetwo,
@@ -83,27 +85,25 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                 'Content-Type': 'application/json',
                 'Authorization': this.props.sessionToken
             })
-        })
-            .then((response) => response.json())
-               
-            .then((poetry) => {
+        }).then((response) => response.json())
+        .then((poetry) => {
                 console.log(poetry);
                this.setState(
                    {//this is resetting the state back to default for next post
-                        question1: "",
-                        question2: "",
-                        question3: "",
-                        red: false,
-                        orange: false,
-                        yellow: false,
-                        green: false,
-                        blue: false,
-                        purple: false,
-                        pink: false,
-                        black: false,
-                        brown: false,
-                        gray: false,
-                        white: false,
+                        // question1: "",
+                        // question2: "",
+                        // question3: "",
+                        // red: false,
+                        // orange: false,
+                        // yellow: false,
+                        // green: false,
+                        // blue: false,
+                        // purple: false,
+                        // pink: false,
+                        // black: false,
+                        // brown: false,
+                        // gray: false,
+                        // white: false,
                         poemtitle: "",
                         lineone: "",
                         linetwo: "",
@@ -112,14 +112,33 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                )
             })
         }
+ 
+        incrementAcorns = (event: any) => {
+            fetch(`http://localhost:3000//create/${event}`,
+            {
+                method: 'POST',
+
+                headers: new Headers({
+                    'Content-Type': 'application/json',
+                    'Authorization': this.props.sessionToken
+                })
+            })
+            .then((response) => response.json())
+    
+            .catch((err) => console.log(err))
+  
+        } 
+
+       
+           
         render() {
             return (
                 <div>
                 <Container> 
-                     
-                <h3>Create a Poem!</h3>
-                <Form onSubmit={this.handleSubmit}>
-                    <FormGroup>
+                <Card className="createPoetryCard">    
+                <h3 className="headerTxtHaiku">Create a Haiku!</h3>
+                <Form className="createForm" onSubmit={this.handleSubmit}>
+                    {/* <FormGroup>
                     <Label>Question 1</Label>
                         <Input
                         className="question1"
@@ -317,9 +336,9 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         }}
                         ></Input>
                         </Col>           
-                    </Row>
+                    </Row> */}
                     <FormGroup>
-                    <Label>Poem Title</Label>
+                    <Label className="headerTxt">Poem Title</Label>
                         <Input
                         className="poemtitle"
                         type="text"
@@ -327,7 +346,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.poemtitle}>
                         </Input>
 
-                    <Label>Line 1</Label>
+                    <Label className="headerTxt">Line One: 5 syllables</Label>
                         <Input
                         className="lineone"
                         type="text"
@@ -335,7 +354,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.lineone}>
                         </Input>
                     
-                    <Label>Line 2</Label>
+                    <Label className="headerTxt">Line Two: 7 syllables</Label>
                         <Input
                         className="linetwo"
                         type="text"
@@ -343,7 +362,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.linetwo}>
                         </Input>
 
-                    <Label>Line 3</Label>
+                    <Label className="headerTxt">Line Three: 5 syllables</Label>
                         <Input
                         className="linethree"
                         type="text"
@@ -351,10 +370,18 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.linethree}>
                         </Input>
 
-                    </FormGroup>   
-                    <Button type="submit">Submit</Button>               
-                </Form>
+                    <Label className="headerTxt">Add an image to your poem (optional)</Label> 
+                        <Input placeholder="enter search word here">
+                        </Input>   
 
+                    </FormGroup>   
+                    <Button 
+                    type="submit"
+                    onClick={this.incrementAcorns}
+                   >
+                    Submit</Button>               
+                </Form>
+                </Card> 
                 </Container> 
                 </div>
             )

@@ -64,7 +64,7 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
                     <Form className="loginform" onSubmit={this.handleSubmit}>
                     <Label><h1 className="headerTxt">Login</h1></Label>    
                     <FormGroup>   
-                    <Label htmlFor="email" className="email">Email</Label>
+                    <Label htmlFor="email" className="headerTxt">Email</Label>
                     <br/>
                     <Input  
                         className="email" 

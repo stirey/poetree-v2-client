@@ -11,13 +11,13 @@ class Banner extends React.Component {
             <div className="bannertext">
                 <Container >
                     <Row>
-                    <Col md="4"></Col>
-                    <Col md="4">
+                    <Col md="2"></Col>
+                    <Col md="8">
                         <h4 className="bannerTxt"> An app for writing, growth and connection.</h4>
                        
                         
                     </Col>
-                    <Col md="4"></Col>
+                    <Col md="2"></Col>
                     </Row>
                 </Container> 
 

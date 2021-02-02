@@ -13,39 +13,39 @@ type UpdatePoetryProps = {
 // state is a variable local to the file I am working in
 type UpdatePoetryState = {
     
-    question1: string;
-    question2: string;
-    question3: string;
-    red: boolean;
-    orange: boolean;
-    yellow: boolean;
-    green: boolean;
-    blue: boolean;
-    purple: boolean;
-    pink: boolean;
-    black: boolean;
-    brown: boolean;
-    gray: boolean;
-    white: boolean;
+    // question1: string;
+    // question2: string;
+    // question3: string;
+    // red: boolean;
+    // orange: boolean;
+    // yellow: boolean;
+    // green: boolean;
+    // blue: boolean;
+    // purple: boolean;
+    // pink: boolean;
+    // black: boolean;
+    // brown: boolean;
+    // gray: boolean;
+    // white: boolean;
     poemtitle: string;
     lineone: string;
     linetwo: string;
     linethree: string;
     modal: boolean,
-    setQ1: (e: any) => void;
-    setQ2: (e: any) => void;
-    setQ3: (e: any) => void;
-    setRed: (e: any) => void;
-    setOrange: (e: any) => void;
-    setYellow: (e: any) => void;
-    setGreen: (e: any) => void;
-    setBlue: (e: any) => void;
-    setPurple: (e: any) => void;
-    setPink: (e: any) => void;
-    setBlack: (e: any) => void;
-    setBrown: (e: any) => void;
-    setGray: (e: any) => void;
-    setWhite: (e: any) => void;
+    // setQ1: (e: any) => void;
+    // setQ2: (e: any) => void;
+    // setQ3: (e: any) => void;
+    // setRed: (e: any) => void;
+    // setOrange: (e: any) => void;
+    // setYellow: (e: any) => void;
+    // setGreen: (e: any) => void;
+    // setBlue: (e: any) => void;
+    // setPurple: (e: any) => void;
+    // setPink: (e: any) => void;
+    // setBlack: (e: any) => void;
+    // setBrown: (e: any) => void;
+    // setGray: (e: any) => void;
+    // setWhite: (e: any) => void;
     setPoemTitle: (e: any) => void;
     setLineOne: (e: any) => void;
     setLineTwo: (e: any) => void;
@@ -60,95 +60,95 @@ constructor(props: UpdatePoetryProps) {
         super(props)
         this.state={
             modal: false,
-            question1: "",
-            question2: "",
-            question3: "",
-            red: false,
-            orange: false,
-            yellow: false,
-            green: false,
-            blue: false,
-            purple: false,
-            pink: false,
-            black: false,
-            brown: false,
-            gray: false,
-            white: false,
+            // question1: "",
+            // question2: "",
+            // question3: "",
+            // red: false,
+            // orange: false,
+            // yellow: false,
+            // green: false,
+            // blue: false,
+            // purple: false,
+            // pink: false,
+            // black: false,
+            // brown: false,
+            // gray: false,
+            // white: false,
             poemtitle: "",
             lineone: "",
             linetwo: "",
             linethree: "",
             
-            setQ1: (e) => {
-                this.setState({
-                    question1: e
-                })
-            },
-            setQ2: (e) => {
-                this.setState({
-                    question2: e
-                })
-            },
-            setQ3: (e) => {
-                this.setState({
-                    question3: e
-                })
-            },
-            setRed: (e) => {
-                this.setState({
-                    red: e
-                })
-            },
-            setOrange: (e) => {
-                this.setState({
-                    orange: e
-                })
-            },
-            setYellow: (e) => {
-                this.setState({
-                    yellow: e
-                })
-            },
-            setGreen: (e) => {
-                this.setState({
-                    green: e
-                })
-            },
-            setBlue: (e) => {
-                this.setState({
-                    blue: e
-                })
-            },
-            setPurple: (e) => {
-                this.setState({
-                    purple: e
-                })
-            },
-            setPink: (e) => {
-                this.setState({
-                    pink: e
-                })
-            },
-            setBlack: (e) => {
-                this.setState({
-                    black: e
-                })
-            },
-            setBrown: (e) => {
-                this.setState({
-                    brown: e
-                })
-            },
-            setGray: (e) => {
-                this.setState({
-                    gray: e
-                })
-            },
-            setWhite: (e) => {
-                this.setState({
-                    white: e
-                })
-            },
+            // setQ1: (e) => {
+            //     this.setState({
+            //         question1: e
+            //     })
+            // },
+            // setQ2: (e) => {
+            //     this.setState({
+            //         question2: e
+            //     })
+            // },
+            // setQ3: (e) => {
+            //     this.setState({
+            //         question3: e
+            //     })
+            // },
+            // setRed: (e) => {
+            //     this.setState({
+            //         red: e
+            //     })
+            // },
+            // setOrange: (e) => {
+            //     this.setState({
+            //         orange: e
+            //     })
+            // },
+            // setYellow: (e) => {
+            //     this.setState({
+            //         yellow: e
+            //     })
+            // },
+            // setGreen: (e) => {
+            //     this.setState({
+            //         green: e
+            //     })
+            // },
+            // setBlue: (e) => {
+            //     this.setState({
+            //         blue: e
+            //     })
+            // },
+            // setPurple: (e) => {
+            //     this.setState({
+            //         purple: e
+            //     })
+            // },
+            // setPink: (e) => {
+            //     this.setState({
+            //         pink: e
+            //     })
+            // },
+            // setBlack: (e) => {
+            //     this.setState({
+            //         black: e
+            //     })
+            // },
+            // setBrown: (e) => {
+            //     this.setState({
+            //         brown: e
+            //     })
+            // },
+            // setGray: (e) => {
+            //     this.setState({
+            //         gray: e
+            //     })
+            // },
+            // setWhite: (e) => {
+            //     this.setState({
+            //         white: e
+            //     })
+            // },
             setPoemTitle: (e) => {
                 this.setState({
                     poemtitle: e
@@ -180,20 +180,20 @@ constructor(props: UpdatePoetryProps) {
                 method: 'PUT',
                 body: JSON.stringify({
                     poetry: {
-                        question1: this.state.question1,
-                        question2: this.state.question2,
-                        question3: this.state.question3,
-                        red: this.state.red,
-                        orange: this.state.orange,
-                        yellow: this.state.yellow,
-                        green: this.state.green,
-                        blue: this.state.blue,
-                        purple: this.state.purple,
-                        pink: this.state.pink,
-                        black: this.state.black,
-                        brown: this.state.brown,
-                        gray: this.state.gray,
-                        white: this.state.white,
+                        // question1: this.state.question1,
+                        // question2: this.state.question2,
+                        // question3: this.state.question3,
+                        // red: this.state.red,
+                        // orange: this.state.orange,
+                        // yellow: this.state.yellow,
+                        // green: this.state.green,
+                        // blue: this.state.blue,
+                        // purple: this.state.purple,
+                        // pink: this.state.pink,
+                        // black: this.state.black,
+                        // brown: this.state.brown,
+                        // gray: this.state.gray,
+                        // white: this.state.white,
                         poemtitle: this.state.poemtitle,
                         lineone: this.state.lineone,
                         linetwo: this.state.linetwo,
@@ -238,8 +238,8 @@ constructor(props: UpdatePoetryProps) {
                 <ModalHeader>Edit Poem</ModalHeader>
                 <ModalBody>
                     <Form>
-                    <FormGroup>
-                    <Label>Question 1</Label>
+                    {/* <FormGroup> */}
+                    {/* <Label>Question 1</Label>
                         <Input
                         className="question1"
                         type="textarea"                     
@@ -440,10 +440,11 @@ constructor(props: UpdatePoetryProps) {
                         }}
                         ></Input>
                         </Col>           
-                    </Row>
+                    </Row> */}
                     <FormGroup>
                     <Label>Poem Title</Label>
                         <Input
+                    
                         className="poemtitle"
                         type="text"
                         onChange={(e) => {this.setState({poemtitle: e.target.value })}}
