@@ -13,7 +13,8 @@ class Banner extends React.Component {
                     <Row>
                     <Col md="4"></Col>
                     <Col md="4">
-                        An app for writing, growth and connection.
+                        <h4 className="bannerTxt"> An app for writing, growth and connection.</h4>
+                       
                         
                     </Col>
                     <Col md="4"></Col>

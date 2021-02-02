@@ -59,7 +59,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
         <div>
             <Card id="logincard">  
                 <Form className="loginform" onSubmit={this.handleSubmit}>
-                    <Label><h1>Signup</h1></Label>    
+                    <Label><h1 className="headerTxt">Signup</h1></Label>    
                         <FormGroup>   
                             <Label htmlFor="email" className="email">Email</Label>
                             <br/>

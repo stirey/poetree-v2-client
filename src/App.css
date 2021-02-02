@@ -8,6 +8,45 @@
 width: 4vw;
 }
 
+.poetreeText{
+  font-family: 'Londrina Solid', cursive;
+  font-size: 2em;
+  margin-right: 10px;
+}
+
+.navlogo {
+  max-width: 30%;
+}
+
+.headerTxt {
+  font-family: 'Londrina Solid', cursive;
+  font-family: 'Montserrat', sans-serif;
+}
+/* .navbarbrand {
+  display: flex;
+  align-items: center;
+} */
+/* .navbarbrand>img {
+  padding: 7px 14px;
+} */
+
+/* BANNER */
+
+.bannerTxt {
+  color: white;
+  font-family: 'Londrina Solid', cursive;
+ font-family: 'Montserrat', sans-serif;
+}
+/* LOGIN HOMEPAGE */
+.treeIconHome {
+  max-width: 80%;
+  opacity: 50%;
+}
+
+.treeCol {
+  justify-content: center;
+}
+
 /* CONTACT */
 #contactForm{
 text-align: center;
@@ -54,6 +93,11 @@ background-color: #CAB2F8;
 padding: 5px;
 }
 
+.authbtn {
+  text-align: center;
+justify-content: center;
+}
+
 /* AUTH */
 
 
@@ -72,7 +116,6 @@ padding: 5px;
 
 .treeIcon {
   max-width: 50%;
-  
 }
 .my-auto {
   display: flex;
@@ -134,4 +177,8 @@ text-align: center;
 background-color: #a2c6bb;
 justify-content: center;
 padding: 50px;
+}
+
+.footerTxt {
+  color: white;
 }

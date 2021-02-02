@@ -7,6 +7,7 @@ import Menu from '../site/Menu';
 import CreatePoetry from '../poetry/CreatePoetry';
 import ViewAllPoems from '../poetry/ViewAllPoems';
 import ViewMyPoems from '../poetry/ViewMyPoems';
+import Contact from '../site/Contact';
 
 
 
@@ -43,7 +44,13 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                         <Button className="logoutBtn" href="/" onClick={this.props.clearToken}>Logout</Button>
                     </Row>
                     <Menu />
+
+                    {/* <Route path='/contact'>
+                        <Contact />   
+                    </Route> */}
                     <Switch>
+
+                     
                     <Route path='/poetry/create'>
                         <CreatePoetry
                          sessionToken={this.props.sessionToken}
@@ -58,7 +65,7 @@ class UserHomepage extends React.Component<UserHomepageProps, {}> {
                     
                     <Route path='/poetry/'>
                         <ViewAllPoems sessionToken={this.props.sessionToken}  />
-                    </Route>                   
+                    </Route>                                      
                     </Switch>
                     
                        

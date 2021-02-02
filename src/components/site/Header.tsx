@@ -1,9 +1,18 @@
 import React from 'react';
-import {Collapse,Navbar,NavbarToggler,Nav,NavItem,NavLink,UncontrolledDropdown, DropdownToggle,DropdownMenu,DropdownItem,NavbarText,} from 'reactstrap';
+import {Collapse,Navbar,NavbarToggler,Nav,NavItem,NavLink,UncontrolledDropdown, DropdownToggle,DropdownMenu,DropdownItem,NavbarText, Media } from 'reactstrap';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from '../site/Homepage';
+import Tree from '../../components/assets/treeLogo_30px.png';
+
 
 
 type HeaderState = {
     isOpen: boolean;
+    theapp: boolean;
+    contact: boolean;
+    themaker: boolean;
+    forteachers: boolean;
+    artsintegration: boolean;
   }
 
 class Header extends React.Component<{}, HeaderState> {
@@ -12,6 +21,11 @@ class Header extends React.Component<{}, HeaderState> {
     this.toggle = this.toggle.bind(this);
     this.state = {
       isOpen: false,
+      theapp: false,
+      contact: true,
+      themaker: false,
+      forteachers: false,
+      artsintegration: false,
     };
   }
 
@@ -24,26 +38,36 @@ class Header extends React.Component<{}, HeaderState> {
     render() {
     return (
     <div>
+
+      <Route>
+        <HomePage />
+      </Route>
       <Navbar color="light" light expand="md">
-            <NavbarText>PoeTree</NavbarText>
+         
+         <Media className=".navlogo" src={Tree} /> 
+            <NavbarText className="poetreeText">
+              PoeTree</NavbarText>
+          
             <NavbarToggler right onClick={this.toggle} />
               <Collapse  isOpen={this.state.isOpen} navbar>
                 <Nav navbar>
                   <NavItem>
-                    <NavLink href="/">Home</NavLink>
+                    <NavLink className="headerTxt" href="/">Home</NavLink>
                   </NavItem>
                   
                   <NavItem>
-                    <NavLink href="/contact" className="contact">Contact</NavLink>
+                    <Route>
+                    <NavLink href="/contact" onClick={(e) => this.state.contact} className="headerTxt" >Contact</NavLink>
+                    </Route>
                   </NavItem>
                   
                   <UncontrolledDropdown nav inNavbar>
-                  <DropdownToggle nav caret>About</DropdownToggle>
+                  <DropdownToggle className="headerTxt" nav caret>About</DropdownToggle>
                     <DropdownMenu right>
-                        <DropdownItem href="/theapp" className="theapp">The App</DropdownItem>
-                        <DropdownItem href='/themaker' className="themaker" >The Maker</DropdownItem>
-                        <DropdownItem href='/forteachers' className="forteachers">Teacher Resources</DropdownItem>
-                        <DropdownItem href='/artsintegration'className="artsintegration">Arts Integration</DropdownItem>
+                        <DropdownItem href="/theapp" className="headerTxt">The App</DropdownItem>
+                        <DropdownItem href='/themaker' className="headerTxt" >The Maker</DropdownItem>
+                        <DropdownItem href='/forteachers' className="headerTxt">Teacher Resources</DropdownItem>
+                        <DropdownItem href='/artsintegration'className="headerTxt">Arts Integration</DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
 

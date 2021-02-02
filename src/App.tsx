@@ -8,6 +8,7 @@ import Banner from './components/site/Banner';
 import Footer from './components/site/Footer';
 import Auth from './components/auth/Auth'
 import UserHomepage from './components/site/UserHomepage'
+import Homepage from './components/site/Homepage';
 
 
 type AppStates = {
@@ -65,9 +66,11 @@ render() {
      <div className="verticalCenter">
 
              <Router>
-               <Header /> 
+               <Header />
                <Banner />
+               
                <Switch>
+                
                  {/* if there is no sessiontoken show auth, if there is one, show userhomepage  */}
               { !this.state.sessionToken ? 
                  <Route path='/'>
@@ -77,8 +80,9 @@ render() {
                  <UserHomepage 
                  sessionToken={this.state.sessionToken} 
                  clearToken={this.clearToken}
-                 />  
-              }       
+                 /> 
+              }     
+                
               </Switch>
              </Router>
              <Footer />

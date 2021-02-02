@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col, Button, CardImg, Card} from 'reactstrap';
 import Login from './Login';
 import Register from './Register';
-
+import Forest from '../assets/forest.png';
 
 type AuthStates = {
     email: string;
@@ -44,11 +44,12 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
     render() {
     return (
         <Container className="auth-container">
-
+        
             <Row>
-               <Col></Col> 
+               
                { this.state.signup ?
-                    <Col>    
+                    <Col>
+                        
                         <Register
                         email={this.state.email}
                         password={this.state.password}
@@ -56,10 +57,12 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
                         setPassword={this.state.setPassword}
                         sessionToken={this.state.sessionToken}
                         updateToken={this.props.updateToken}
-                        getToken={this.state.getToken} />  
+                        getToken={this.state.getToken} />
+                       
                     </Col>
                     :
                     <Col>
+                    
                         <Login 
                         email={this.state.email}
                         password={this.state.password}
@@ -68,13 +71,20 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
                         sessionToken={this.state.sessionToken}
                         updateToken={this.props.updateToken}
                         getToken={this.state.getToken} />
+                       
                     </Col>
                 }
-                <Col></Col>
+                
+
+                    
+                    <Col className="treeCol">
+                    <CardImg className="treeIconHome" top width="100%" src={Forest} alt="Card image cap" />
+                    </Col>
+                    
             </Row> 
+
+
             <Row>
-                <Col></Col>
-                <Col></Col>
                     <Col className="authbtn">
                         <Button onClick={() => { 
                         this.setState({
@@ -85,8 +95,9 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
                          "Need a login? Click here."}
                         </Button>
                     </Col>
-                    <Col></Col>
                 <Col></Col>
+
+                        
             </Row>
 
         </Container>

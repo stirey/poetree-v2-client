@@ -12,8 +12,8 @@ class Footer extends React.Component {
             <Container className="footer">
                 <Row className="footerRow">
                 <Col md="4"></Col>
-                <Col md="4">
-                 © Copyright 2020 PoeTree   
+                <Col md="4" >
+                 <h5 className="footerTxt">© Copyright 2020 PoeTree</h5>   
                 </Col>
                 <Col md="4"></Col>             
                 </Row>                          

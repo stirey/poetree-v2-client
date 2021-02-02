@@ -62,7 +62,7 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
     <Row></Row>
           <Card className="logincard"> 
                     <Form className="loginform" onSubmit={this.handleSubmit}>
-                    <Label><h1>Login</h1></Label>    
+                    <Label><h1 className="headerTxt">Login</h1></Label>    
                     <FormGroup>   
                     <Label htmlFor="email" className="email">Email</Label>
                     <br/>
