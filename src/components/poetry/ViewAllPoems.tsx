@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Card, CardText, CardTitle,CardBody, Row, Col } from 'reactstrap';
-
+import APIURL from '../../helpers/environment'
 
 
 
@@ -34,7 +34,7 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
   
 
     fetchPoetry = () => {
-        fetch(`http://localhost:3000/poetry/`, {
+        fetch(`${APIURL}/poetry/`, {
             method: 'GET',
             headers: new Headers({
                 'Content-Type': 'application/json',
@@ -49,7 +49,7 @@ class ViewAllPoems extends React.Component<ViewAllPoetryProps, ViewAllPoetryStat
 
     incrementLikes = (event: any) => {
         
-        fetch(`http://localhost:3000/emoji/create/${event}`, {
+        fetch(`${APIURL}/emoji/create/${event}`, {
             method: 'POST',
         
             headers: new Headers({

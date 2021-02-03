@@ -1,5 +1,6 @@
 import React from 'react';
 import {  Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
+import APIURL from '../../helpers/environment';
 
 
 type RegisterProps = {
@@ -22,7 +23,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
 
         handleSubmit = (event: any) => {
             event.preventDefault();
-            fetch(`http://localhost:3000/user/create`, {
+            fetch(`${APIURL}/user/create`, {
                 method: 'POST',
                 body: JSON.stringify({
                     user: {

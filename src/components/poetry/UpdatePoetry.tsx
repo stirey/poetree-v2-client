@@ -1,6 +1,9 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import {Button, Modal, ModalHeader, ModalBody, Row, Input, Label, Col, Form, FormGroup} from 'reactstrap';
+import APIURL from '../../helpers/environment'
+
+
 // props always come from other files
 type UpdatePoetryProps = {
     sessionToken: any;
@@ -176,7 +179,7 @@ constructor(props: UpdatePoetryProps) {
 // this is what changes everything on the backend
         handleSubmit = (event: any) => {
             event.preventDefault();
-            fetch(`http://localhost:3000/poetry/update/${this.props.eventId}`, {
+            fetch(`${APIURL}/poetry/update/${this.props.eventId}`, {
                 method: 'PUT',
                 body: JSON.stringify({
                     poetry: {

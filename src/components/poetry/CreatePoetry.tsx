@@ -1,5 +1,7 @@
 import React from 'react'
 import { Container, Form, FormGroup, Input, Label, Button, Row,Col, Card } from 'reactstrap';
+import APIURL from '../../helpers/environment'
+
 
 type CreatePoetryProps = {
     sessionToken?: any;
@@ -57,7 +59,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
 
     handleSubmit = (event: any) => {
         event.preventDefault();
-        fetch(`http://localhost:3000/poetry/create`, {
+        fetch(`${APIURL}/poetry/create`, {
             method: 'POST',
             body: JSON.stringify({
                 poetry: { //talking to the backend
@@ -114,7 +116,7 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
         }
  
         incrementAcorns = (event: any) => {
-            fetch(`http://localhost:3000//create/${event}`,
+            fetch(`${APIURL}/create/${event}`,
             {
                 method: 'POST',
 

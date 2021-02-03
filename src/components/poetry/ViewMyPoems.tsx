@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Card, CardText, CardTitle,CardBody, Row, Col, Modal } from 'reactstrap';
 
 import UpdatePoetry from '../poetry/UpdatePoetry';
-
+import APIURL from '../../helpers/environment'
 
 
 type MyPoetryProps = {
@@ -47,7 +47,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
    fetchMyPoetry = () => {
        console.log('fetch')
        //localstorage line is same as passing props. The name 'id' is set in App.tsx localStorage.setItem('id', userId);
-       fetch(`http://localhost:3000/poetry/mine/${localStorage.getItem('id')}`, {
+       fetch(`${APIURL}/poetry/mine/${localStorage.getItem('id')}`, {
            method: 'GET',
            headers: new Headers({
                'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ class MyPoetry extends React.Component<MyPoetryProps, MyPoetryStates> {
         deletePoem = (event: any) => {
             // event refers to the id of the poem
             console.log(event)
-            fetch(`http://localhost:3000/poetry/delete/${event}`, {
+            fetch(`${APIURL}/poetry/delete/${event}`, {
                 method: 'DELETE',
                 headers: new Headers({
                     'Content-Type': 'application/json',
