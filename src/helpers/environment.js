@@ -8,7 +8,7 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3000'
         break
     case  'poetree-server.herokuapp.com':
-        APILURL= 'https://poetree-server.herokuapp.com'   
+        APIURL= 'https://poetree-server.herokuapp.com'   
 }
 
 export default APIURL
