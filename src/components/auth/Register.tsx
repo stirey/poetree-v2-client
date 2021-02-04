@@ -11,6 +11,8 @@ type RegisterProps = {
     sessionToken: any;
     updateToken: any;
     getToken: any;
+
+    
 }
 
 class Register extends React.Component<RegisterProps, {redirect: null | string}> {
@@ -28,7 +30,9 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 body: JSON.stringify({
                     user: {
                         email: this.props.email,
-                        password: this.props.password
+                        password: this.props.password,
+                        
+                
                     }
                 }),
                 headers: new Headers({
