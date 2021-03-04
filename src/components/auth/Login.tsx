@@ -49,9 +49,13 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
             
             .then((data) => {
                 console.log(data)
+                if (this.props.email && this.props.password){
                 //line 50 props passed down from App.tsx, see two paramters below
                 this.props.updateToken(data.sessionToken, data.user.id);
                 this.setState({redirect: '/userhomepage'});
+                } else {
+                    console.log("login fields are incomplete")
+                }
             })
     }
 

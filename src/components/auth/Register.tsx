@@ -49,17 +49,19 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 })
                 .then((data) => {
                     console.log(data);
+                    if (this.props.email && this.props.password){
                     // here we are giving the paramter of updateToken
                     this.props.updateToken(data.sessionToken, data.user.id);
                     
                     this.setState({redirect: '/userhomepage'});
+                } else {
+                    console.log("registration info incomplete")
+                }
                 })
         }
     
  render() {
-    //  if (this.state.redirect) {
-    //      return <Redirect to = {this.state.redirect} />
-    //  }
+   
     return (
         <div>
             <Card id="logincard">  
