@@ -4,7 +4,7 @@ import { Container, Row, Col, Button, CardImg, Card} from 'reactstrap';
 import Login from './Login';
 import Register from './Register';
 import Forest from '../assets/forest.png';
-import Tree from '../assets/tree.png';
+
 
 type AuthStates = {
     email: string;
@@ -79,7 +79,7 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
 
                     
                     <Col className="treeCol">
-                    <CardImg type="image" className="treeIconHome" top width="100%" src={Tree} alt="image of a tree" />
+                    <CardImg type="image" className="treeIconHome" top width="100%" src={Forest} alt="image of a tree" />
                     </Col>
                     
             </Row> 
