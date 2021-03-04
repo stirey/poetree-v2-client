@@ -40,7 +40,7 @@ width: 4vw;
 /* LOGIN HOMEPAGE */
 .treeIconHome {
   max-width: 80%;
-  opacity: 50%;
+  opacity: .5;
 }
 
 .treeCol {
