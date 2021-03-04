@@ -81,6 +81,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                             <Label htmlFor="password"className="password">Password</Label>
                             <br/>
                             <Input 
+                            type="password"
                             className="password" 
                             placeholder="enter password"  
                             onChange={(e) => this.props.setPassword(e.target.value)}

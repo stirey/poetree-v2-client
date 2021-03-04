@@ -83,6 +83,7 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
                     <Label htmlFor="password"className="password">Password</Label>
                     <br/>
                     <Input 
+                    type="password"
                     className="password"
                     name="password"  
                     placeholder="enter password" 
