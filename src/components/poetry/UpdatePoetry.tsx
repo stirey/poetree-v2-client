@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
-import {Button, Modal, ModalHeader, ModalBody, Row, Input, Label, Col, Form, FormGroup} from 'reactstrap';
+import {Button, Modal, ModalHeader, ModalBody, Row, Input, Label, Form, FormGroup} from 'reactstrap';
 import APIURL from '../../helpers/environment'
 
 

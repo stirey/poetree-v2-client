@@ -15,7 +15,7 @@ type AuthStates = {
     updateToken: any;
     getToken: any;
     signup: boolean;
-
+    
 }
 
 class Auth extends React.Component<{updateToken: any}, AuthStates> {
@@ -28,6 +28,7 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
             getToken: "",
             updateToken: "",
             signup: true,
+            
             setEmail: (e) => {
                 this.setState({
                     email: e
@@ -40,6 +41,7 @@ class Auth extends React.Component<{updateToken: any}, AuthStates> {
             },
 
         }
+        
     }
     
     render() {

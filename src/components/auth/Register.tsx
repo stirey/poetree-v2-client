@@ -10,10 +10,9 @@ type RegisterProps = {
     setPassword: (e: any) => any;
     sessionToken: any;
     updateToken: any;
-    getToken: any;
-
-    
+    getToken: any; 
 }
+
 
 class Register extends React.Component<RegisterProps, {redirect: null | string}> {
     constructor(props: RegisterProps) {
@@ -30,9 +29,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 body: JSON.stringify({
                     user: {
                         email: this.props.email,
-                        password: this.props.password,
-                        
-                
+                        password: this.props.password, 
                     }
                 }),
                 headers: new Headers({
@@ -41,7 +38,6 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
             }).then((response) => {
                     if (response.status === 200) {
                         console.log("Registration is successful.");
-
                     } else {
                         console.log("Registration has failed.");
                     }
@@ -49,16 +45,20 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 })
                 .then((data) => {
                     console.log(data);
+                    // checking to see if both input fields are complete before it updates token
                     if (this.props.email && this.props.password){
                     // here we are giving the paramter of updateToken
                     this.props.updateToken(data.sessionToken, data.user.id);
-                    
+                    // if the inputs are complete and correct, it will redirect the user to the verified homepage
                     this.setState({redirect: '/userhomepage'});
                 } else {
+                    //if inputs are incomplete or incorrect, it will prompt a modal informing user of error
                     console.log("registration info incomplete")
+                    // this.props.openModal();
                 }
                 })
         }
+
     
  render() {
    

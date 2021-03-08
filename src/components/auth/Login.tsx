@@ -39,25 +39,33 @@ class Login extends React.Component<LoginProps, {redirect: null | string}> {
             .then((response) => {
                 if (response.status === 200) {
                     console.log("Login is successful.");
-                    
-
                 } else {
                     console.log("Login has failed.");
                 }
                 return response.json();
-            })
-            
+            })         
             .then((data) => {
                 console.log(data)
-                if (this.props.email && this.props.password){
-                //line 50 props passed down from App.tsx, see two paramters below
-                this.props.updateToken(data.sessionToken, data.user.id);
-                this.setState({redirect: '/userhomepage'});
+
+                if (!this.props.email && !this.props.password){
+                    console.log("login info incomplete")
+                } if (this.props.email && this.props.password) {
+                    this.props.updateToken(data.sessionToken, data.user.id);
+                    this.setState({redirect: '/userhomepage'}); 
                 } else {
-                    console.log("login fields are incomplete")
+                    console.log("unknown login error")
                 }
-            })
-    }
+                    // here we are giving the paramter of updateToken
+                   
+                    // if the inputs are complete and correct, it will redirect the user to the verified homepage
+                    
+            
+               
+                //line 50 props passed down from App.tsx, see two paramters below
+                
+                } 
+            )}
+    
 
  render() {
       
