@@ -372,9 +372,9 @@ class CreatePoetry extends React.Component< CreatePoetryProps, CreatePoetryState
                         value={this.state.linethree}>
                         </Input>
 
-                    <Label className="headerTxt">Add an image to your poem (optional)</Label> 
+                    {/* <Label className="headerTxt">Add an image to your poem (optional)</Label> 
                         <Input placeholder="enter search word here">
-                        </Input>   
+                        </Input>    */}
 
                     </FormGroup>   
                     <Button 

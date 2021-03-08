@@ -45,6 +45,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                 })
                 .then((data) => {
                     console.log(data);
+                
                     // checking to see if both input fields are complete before it updates token
                     if (this.props.email && this.props.password){
                     // here we are giving the paramter of updateToken
@@ -55,7 +56,7 @@ class Register extends React.Component<RegisterProps, {redirect: null | string}>
                     //if inputs are incomplete or incorrect, it will prompt a modal informing user of error
                     console.log("registration info incomplete")
                     // this.props.openModal();
-                }
+                } 
                 })
         }
 
